@@ -1,48 +1,81 @@
-# C/C++ 面试知识总结
+<div align="center">
+📖 Github
+&emsp;&emsp; | &emsp;&emsp;
+<a href="https://interview.huihut.com">📚 Docsify</a>
+</div> 
+<br>
 
-为 2018 年春招总结的 C/C++ 面试知识，只为复习、分享。部分知识点与图片来自网络，侵删。欢迎 star，欢迎 issues。
+<div align="center">
+简体中文
+&emsp;&emsp; | &emsp;&emsp;
+<a href="https://github.com/huihut/interview/blob/master/README_en.md">English</a>
+</div> 
+<br>
 
-## 使用建议
+<b><details><summary>💡 关于</summary></b>
 
-* `Ctrl + F`：快速查找定位知识点
-* `TOC 导航`：使用 [jawil/GayHub](https://github.com/jawil/GayHub) 插件快速目录跳转
-* `T`：按 `T` 激活文件查找器快速查找 / 跳转文件
+📚 本仓库是面向 C/C++ 技术方向校招求职者、初学者的基础知识总结，包括语言、程序库、数据结构、算法、系统、网络、链接装载库等知识及面试经验、招聘、内推等信息。
 
-## 目录
+💡 侧边目录支持方式：[📚 Docsify 文档](https://interview.huihut.com)、[Github + TOC 导航](https://github.com/jawil/GayHub)（[TOC预览.png](https://gitee.com/huihut/interview/raw/master/images/TOC预览.png)）
 
-* [C/C++](#cc)
-* [STL](#stl)
-* [数据结构](#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
-* [算法](#%E7%AE%97%E6%B3%95)
-* [Problems](#problems)
-* [操作系统](#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F)
-* [计算机网络](#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C)
-* [网络编程](#%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B)
-* [数据库](#%E6%95%B0%E6%8D%AE%E5%BA%93)
-* [设计模式](#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F)
-* [链接装载库](#%E9%93%BE%E6%8E%A5%E8%A3%85%E8%BD%BD%E5%BA%93)
-* [海量数据处理](#%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86)
-* [音视频](#%E9%9F%B3%E8%A7%86%E9%A2%91)
-* [其他](#%E5%85%B6%E4%BB%96)
-* [书籍](#%E4%B9%A6%E7%B1%8D)
-* [复习刷题网站](#%E5%A4%8D%E4%B9%A0%E5%88%B7%E9%A2%98%E7%BD%91%E7%AB%99)
-* [招聘时间岗位](#%E6%8B%9B%E8%81%98%E6%97%B6%E9%97%B4%E5%B2%97%E4%BD%8D)
-* [面试题目经验](#%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E7%BB%8F%E9%AA%8C)
+📄 保存为 PDF 方式：使用 Chrome 浏览器打开 <a href="https://interview.huihut.com">📚 Docsify 文档</a> 页面，缩起左侧目录-右键 - 打印 - 选择目标打印机是另存为PDF - 保存（[打印预览.png](https://gitee.com/huihut/interview/raw/master/images/打印预览.png)）
 
-## C/C++
+🙏 仓库内容如有错误或改进欢迎 issue 或 pr，建议或讨论可在 [#12](https://github.com/huihut/interview/issues/12) 提出。由于本人水平有限，仓库中的知识点有来自本人原创、读书笔记、书籍、博文等，非原创均已标明出处，如有遗漏，请 issue 提出。本仓库遵循 [CC BY-NC-SA 4.0（署名 - 非商业性使用 - 相同方式共享）](https://github.com/huihut/interview/blob/master/LICENSE) 协议，转载请注明出处，不得用于商业目的。
+
+</details>
+
+## 📑 目录
+
+* [➕ C/C++](#cc)
+* [⭐️ Effective](#effective)
+* [📦 STL](#stl)
+* [〽️ 数据结构](#data-structure)
+* [⚡️ 算法](#algorithm)
+* [❓ Problems](#problems)
+* [💻 操作系统](#os)
+* [☁️ 计算机网络](#computer-network)
+* [🌩 网络编程](#network-programming)
+* [💾 数据库](#database)
+* [📏 设计模式](#design-pattern)
+* [⚙️ 链接装载库](#link-loading-library)
+* [📚 书籍](#books)
+* [🔱 C/C++ 发展方向](#cc-development-direction)
+* [💯 复习刷题网站](#review-of-brush-questions-website)
+* [📝 面试题目经验](#interview-questions-experience)
+* [📆 招聘时间岗位](#recruitment-time-post)
+* [👍 内推](#recommend)
+* [👬 贡献者](#contributor)
+* [🍭 支持赞助](#support-sponsor)
+* [📜 License](#license)
+
+
+<a id="cc"></a>
+
+## ➕ C/C++
 
 ### const
 
 #### 作用
 
 1. 修饰变量，说明该变量不可以被改变；
-2. 修饰指针，分为指向常量的指针和指针常量；
-3. 常量引用，经常用于形参类型，即避免了拷贝，又避免了函数对值的修改；
+2. 修饰指针，分为指向常量的指针（pointer to const）和自身是常量的指针（常量指针，const pointer）；
+3. 修饰引用，指向常量的引用（reference to const），用于形参类型，即避免了拷贝，又避免了函数对值的修改；
 4. 修饰成员函数，说明该成员函数内不能修改成员变量。
+
+#### const 的指针与引用
+
+* 指针
+    * 指向常量的指针（pointer to const）
+    * 自身是常量的指针（常量指针，const pointer）
+* 引用
+    * 指向常量的引用（reference to const）
+    * 没有 const reference，因为引用本身就是 const pointer
+
+> （为了方便记忆可以想成）被 const 修饰（在 const 后面）的值不可改变，如下文使用例子中的 `p2`、`p3`
 
 #### 使用
 
-<details><summary>const 使用</summary> 
+const 使用
 
 ```cpp
 // 类
@@ -53,7 +86,7 @@ private:
 
 public:
     // 构造函数
-    A() { };
+    A() : a(0) { };
     A(int x) : a(x) { };        // 初始化列表
 
     // const可用于对重载函数的区分
@@ -64,23 +97,23 @@ public:
 void function()
 {
     // 对象
-    A b;                        // 普通对象，可以调用全部成员函数
-    const A a;                  // 常对象，只能调用常成员函数、更新常成员变量
-    const A *p = &a;            // 常指针
-    const A &q = a;             // 常引用
+    A b;                        // 普通对象，可以调用全部成员函数、更新常成员变量
+    const A a;                  // 常对象，只能调用常成员函数
+    const A *p = &a;            // 指针变量，指向常对象
+    const A &q = a;             // 指向常对象的引用
 
     // 指针
     char greeting[] = "Hello";
     char* p1 = greeting;                // 指针变量，指向字符数组变量
-    const char* p2 = greeting;          // 指针变量，指向字符数组常量
-    char* const p3 = greeting;          // 常指针，指向字符数组变量
-    const char* const p4 = greeting;    // 常指针，指向字符数组常量
+    const char* p2 = greeting;          // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变）
+    char* const p3 = greeting;          // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变）
+    const char* const p4 = greeting;    // 自身是常量的指针，指向字符数组常量
 }
 
 // 函数
 void function1(const int Var);           // 传递过来的参数在函数内不可变
 void function2(const char* Var);         // 参数指针所指内容为常量
-void function3(char* const Var);         // 参数指针为常指针
+void function3(char* const Var);         // 参数指针为常量
 void function4(const int& Var);          // 引用参数在函数内为常量
 
 // 函数返回值
@@ -89,21 +122,19 @@ const int* function6();     // 返回一个指向常量的指针变量，使用�
 int* const function7();     // 返回一个指向变量的常指针，使用：int* const p = function7();
 ```
 
-</details>
-
 ### static
 
 #### 作用
 
 1. 修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。
-2. 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命令函数重名，可以将函数定位为 static。
+2. 修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。
 3. 修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。
 4. 修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。
 
 ### this 指针
 
-1. `this` 指针是一个隐含于每一个成员函数中的特殊指针。它指向正在被该成员函数操作的那个对象。
-2. 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 `this` 指针，然后调用成员函数，每次成员函数存取数据成员时，由隐含使用 `this` 指针。
+1. `this` 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。
+2. 当对一个对象调用成员函数时，编译程序先将对象的地址赋给 `this` 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 `this` 指针。
 3. 当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。
 4. `this` 指针被隐含地声明为: `ClassName *const this`，这意味着不能给 `this` 指针赋值；在 `ClassName` 类的 `const` 成员函数中，`this` 指针的类型为：`const ClassName* const`，这说明不能对 `this` 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）；
 5. `this` 并不是一个常规变量，而是个右值，所以不能取得 `this` 的地址（不能 `&this`）。
@@ -119,26 +150,34 @@ int* const function7();     // 返回一个指向变量的常指针，使用：i
 * 相当于把内联函数里面的内容写在调用内联函数处；
 * 相当于不用执行进入函数的步骤，直接执行函数体；
 * 相当于宏，却比宏多了类型检查，真正具有函数特性；
-* 不能包含循环、递归、switch 等复杂操作；
-* 类中除了虚函数的其他函数都会自动隐式地当成内联函数。
+* 编译器一般不内联包含循环、递归、switch 等复杂操作的内联函数；
+* 在类声明中定义的函数，除了虚函数的其他函数都会自动隐式地当成内联函数。
 
 #### 使用
 
-<details><summary>inline 使用</summary> 
-
+inline 使用
 
 ```cpp
 // 声明1（加 inline，建议使用）
-inline int functionName(int first, int secend,...);
+inline int functionName(int first, int second,...);
 
 // 声明2（不加 inline）
-int functionName(int first, int secend,...);
+int functionName(int first, int second,...);
 
 // 定义
-inline int functionName(int first, int secend,...) {/****/};
-```
+inline int functionName(int first, int second,...) {/****/};
 
-</details>
+// 类内定义，隐式内联
+class A {
+    int doA() { return 0; }         // 隐式内联
+}
+
+// 类外定义，需要显式内联
+class A {
+    int doA();
+}
+inline int A::doA() { return 0; }   // 需要显式内联
+```
 
 #### 编译器对 inline 函数的处理步骤
 
@@ -164,14 +203,13 @@ inline int functionName(int first, int secend,...) {/****/};
 
 #### 虚函数（virtual）可以是内联函数（inline）吗？
 
-[Are "inline virtual" member functions ever actually "inlined"?](http://www.cs.technion.ac.il/users/yechiel/c++-faq/inline-virtuals.html)
+> [Are "inline virtual" member functions ever actually "inlined"?](http://www.cs.technion.ac.il/users/yechiel/c++-faq/inline-virtuals.html)
 
 * 虚函数可以是内联函数，内联是可以修饰虚函数的，但是当虚函数表现多态性的时候不能内联。
 * 内联是在编译器建议编译器内联，而虚函数的多态性在运行期，编译器无法知道运行期调用哪个代码，因此虚函数表现为多态性时（运行期）不可以内联。
 * `inline virtual` 唯一可以内联的时候是：编译器知道所调用的对象是哪个类（如 `Base::who()`），这只有在编译器具有实际对象而不是对象的指针或引用时才会发生。
 
-<details><summary>虚函数内联使用</summary> 
-
+虚函数内联使用
 
 ```cpp
 #include <iostream>  
@@ -213,14 +251,28 @@ int main()
 } 
 ```
 
-</details>
+### volatile
+
+```cpp
+volatile int i = 10; 
+```
+
+* volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素（操作系统、硬件、其它线程等）更改。所以使用 volatile 告诉编译器不应对这样的对象进行优化。
+* volatile 关键字声明的变量，每次访问时都必须从内存中取出值（没有被 volatile 修饰的变量，可能由于编译器的优化，从 CPU 寄存器中取值）
+* const 可以是 volatile （如只读的状态寄存器）
+* 指针可以是 volatile
 
 ### assert()
 
-断言，是宏，而非函数。assert 宏的原型定义在`<assert.h>`（C）、`<cassert>`（C++）中，其作用是如果它的条件返回错误，则终止程序执行。如：
+断言，是宏，而非函数。assert 宏的原型定义在 `<assert.h>`（C）、`<cassert>`（C++）中，其作用是如果它的条件返回错误，则终止程序执行。可以通过定义 `NDEBUG` 来关闭 assert，但是需要在源代码的开头，`include <assert.h>` 之前。
+
+assert() 使用
 
 ```cpp
-assert( p != NULL );
+#define NDEBUG          // 加上这行，则 assert 不可用
+#include <assert.h>
+
+assert( p != NULL );    // assert 不可用
 ```
 
 ### sizeof()
@@ -232,8 +284,7 @@ assert( p != NULL );
 
 设定结构体、联合以及类成员变量以 n 字节方式对齐
 
-<details><summary>#pragma pack(n) 使用</summary> 
-
+#pragma pack(n) 使用
 
 ```cpp
 #pragma pack(push)  // 保存对齐状态
@@ -249,8 +300,6 @@ struct test
 #pragma pack(pop)   // 恢复对齐状态
 ```
 
-</details>
-
 ### 位域
 
 ```cpp
@@ -263,25 +312,14 @@ Bit mode: 2;    // mode 占 2 位
 * 位域的类型必须是整型或枚举类型，带符号类型中的位域的行为将因具体实现而定
 * 取地址运算符（&）不能作用于位域，任何指针都无法指向类的位域
 
-### volatile
-
-```cpp
-volatile int i = 10; 
-```
-
-* volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素（操作系统、硬件、其它线程等）更改。所以使用 volatile 告诉编译器不应对这样的对象进行优化。
-* volatile 关键字声明的变量，每次访问时都必须从内存中取出值（没有被 volatile 修饰的变量，可能由于编译器的优化，从 CPU 寄存器中取值）
-* const 可以是 volatile （如只读的状态寄存器）
-* 指针可以是 volatile
-
 ### extern "C"
 
 * 被 extern 限定的函数或变量是 extern 类型的
-* 被 `extern "C"` 修饰的变量和函数是按照 C 语言方式编译和连接的
+* 被 `extern "C"` 修饰的变量和函数是按照 C 语言方式编译和链接的
 
 `extern "C"` 的作用是让 C++ 编译器将 `extern "C"` 声明的代码当作 C 语言代码处理，可以避免 C++ 因符号修饰导致代码不能和C语言库中的符号进行链接的问题。
 
-<details><summary>extern "C" 使用</summary> 
+extern "C" 使用
 
 ```cpp
 #ifdef __cplusplus
@@ -294,8 +332,6 @@ void *memset(void *, int, size_t);
 }
 #endif
 ```
-
-</details>
 
 ### struct 和 typedef struct
 
@@ -381,7 +417,7 @@ int main() {
 * 匿名 union 不能包含 protected 成员或 private 成员
 * 全局匿名联合必须是静态（static）的
 
-<details><summary>union 使用</summary> 
+union 使用
 
 ```cpp
 #include<iostream>
@@ -417,51 +453,67 @@ int main() {
 }
 ```
 
-</details>
-
 ### C 实现 C++ 类
 
-[C 语言实现封装、继承和多态](http://dongxicheng.org/cpp/ooc/)
+C 实现 C++ 的面向对象特性（封装、继承、多态）
 
-### explicit（显式）构造函数
+* 封装：使用函数指针把属性与方法封装到结构体中
+* 继承：结构体嵌套
+* 多态：父类与子类方法的函数指针不同
 
-explicit 修饰的构造函数可用来防止隐式转换
+> [Can you write object-oriented code in C? [closed]](https://stackoverflow.com/a/351745)
 
-<details><summary>explicit 使用</summary> 
+### explicit（显式）关键字
+
+* explicit 修饰构造函数时，可以防止隐式转换和复制初始化
+* explicit 修饰转换函数时，可以防止隐式转换，但 [按语境转换](https://zh.cppreference.com/w/cpp/language/implicit_conversion) 除外
+
+explicit 使用
 
 ```cpp
-class Test1
+struct A
 {
-public:
-    Test1(int n)            // 普通构造函数
-    {
-        num=n;
-    }
-private:
-    int num;
+	A(int) { }
+	operator bool() const { return true; }
 };
 
-class Test2
+struct B
 {
-public:
-    explicit Test2(int n)   // explicit（显式）构造函数
-    {
-        num=n;
-    }
-private:
-    int num;
+	explicit B(int) {}
+	explicit operator bool() const { return true; }
 };
+
+void doA(A a) {}
+
+void doB(B b) {}
 
 int main()
 {
-    Test1 t1=12;            // 隐式调用其构造函数，成功
-    Test2 t2=12;            // 编译错误，不能隐式调用其构造函数
-    Test2 t2(12);           // 显式调用成功
-    return 0;
+	A a1(1);		// OK：直接初始化
+	A a2 = 1;		// OK：复制初始化
+	A a3{ 1 };		// OK：直接列表初始化
+	A a4 = { 1 };		// OK：复制列表初始化
+	A a5 = (A)1;		// OK：允许 static_cast 的显式转换 
+	doA(1);			// OK：允许从 int 到 A 的隐式转换
+	if (a1);		// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+	bool a6(a1);		// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+	bool a7 = a1;		// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+	bool a8 = static_cast<bool>(a1);  // OK ：static_cast 进行直接初始化
+
+	B b1(1);		// OK：直接初始化
+	B b2 = 1;		// 错误：被 explicit 修饰构造函数的对象不可以复制初始化
+	B b3{ 1 };		// OK：直接列表初始化
+	B b4 = { 1 };		// 错误：被 explicit 修饰构造函数的对象不可以复制列表初始化
+	B b5 = (B)1;		// OK：允许 static_cast 的显式转换
+	doB(1);			// 错误：被 explicit 修饰构造函数的对象不可以从 int 到 B 的隐式转换
+	if (b1);		// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
+	bool b6(b1);		// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
+	bool b7 = b1;		// 错误：被 explicit 修饰转换函数 B::operator bool() 的对象不可以隐式转换
+	bool b8 = static_cast<bool>(b1);  // OK：static_cast 进行直接初始化
+
+	return 0;
 }
 ```
-
-</details>
 
 ### friend 友元类和友元函数
 
@@ -481,9 +533,9 @@ int main()
 using namespace_name::name;
 ```
 
-#### 构造函数的 using 声明【C++11】
+#### 构造函数的 using 声明
 
-在 C++11 中，派生类能够重用其直接积累定义的构造函数。
+在 C++11 中，派生类能够重用其直接基类定义的构造函数。
 
 ```cpp
 class Derived : Base {
@@ -496,7 +548,7 @@ public:
 如上 using 声明，对于基类的每个构造函数，编译器都生成一个与之对应（形参列表完全相同）的派生类构造函数。生成如下类型构造函数：
 
 ```cpp
-derived(parms) : base(args) { }
+Derived(parms) : Base(args) { }
 ```
 
 #### using 指示
@@ -509,9 +561,9 @@ using namespace_name name;
 
 #### 尽量少使用 `using 指示` 污染命名空间
 
-> 一般说来，使用 using 命令比使用 using 编译命令更安全，这是由于它**只导入了制定的名称**。如果该名称与局部名称发生冲突，编译器将**发出指示**。using编译命令导入所有的名称，包括可能并不需要的名称。如果与局部名称发生冲突，则**局部名称将覆盖名称空间版本**，而编译器**并不会发出警告**。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。
+> 一般说来，使用 using 命令比使用 using 编译命令更安全，这是由于它**只导入了指定的名称**。如果该名称与局部名称发生冲突，编译器将**发出指示**。using编译命令导入所有的名称，包括可能并不需要的名称。如果与局部名称发生冲突，则**局部名称将覆盖名称空间版本**，而编译器**并不会发出警告**。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。
 
-<details><summary>using 使用</summary> 
+using 使用
 
 尽量少使用 `using 指示`
 
@@ -538,8 +590,6 @@ cin >> x;
 cout << x << endl;
 ```
 
-</details>
-
 ### :: 范围解析运算符
 
 #### 分类
@@ -548,29 +598,33 @@ cout << x << endl;
 2. 类作用域符（`class::name`）：用于表示指定类型的作用域范围是具体某个类的
 3. 命名空间作用域符（`namespace::name`）:用于表示指定类型的作用域范围是具体某个命名空间的
 
-<details><summary>:: 使用</summary> 
+:: 使用
 
 ```cpp
-int count = 0;        // 全局（::）的 count
+int count = 11;         // 全局（::）的 count
 
 class A {
 public:
-    static int count; // 类 A 的 count（A::count）
+	static int count;   // 类 A 的 count（A::count）
 };
+int A::count = 21;
+
+void fun()
+{
+	int count = 31;     // 初始化局部的 count 为 31
+	count = 32;         // 设置局部的 count 的值为 32
+}
 
 int main() {
-    ::count = 1;      // 设置全局的 count 的值为 1
+	::count = 12;       // 测试 1：设置全局的 count 的值为 12
 
-    A::count = 2;     // 设置类 A 的 count 为 2
+	A::count = 22;      // 测试 2：设置类 A 的 count 为 22
 
-    int count = 0;    // 局部的 count
-    count = 3;        // 设置局部的 count 的值为 3
+	fun();		        // 测试 3
 
-    return 0;
+	return 0;
 }
 ```
-
-</details>
 
 ### enum 枚举类型
 
@@ -595,7 +649,7 @@ decltype 关键字用于检查实体的声明类型或表达式的类型及值�
 decltype ( expression )
 ```
 
-<details><summary>decltype 使用</summary> 
+decltype 使用
 
 ```cpp
 // 尾置返回允许我们在参数列表之后声明返回类型
@@ -613,8 +667,6 @@ auto fcn2(It beg, It end) -> typename remove_reference<decltype(*beg)>::type
     return *beg;    // 返回序列中一个元素的拷贝
 }
 ```
-
-</details>
 
 ### 引用
 
@@ -648,13 +700,13 @@ auto fcn2(It beg, It end) -> typename remove_reference<decltype(*beg)>::type
 * 有些场合必须要用初始化列表：
   1. 常量成员，因为常量只能初始化不能赋值，所以必须放在初始化列表里面
   2. 引用类型，引用必须在定义的时候初始化，并且不能重新赋值，所以也要写在初始化列表里面
-  3. 没有默认构造函数的类类型，因为使用初始化列表可以不必调用默认构造函数来初始化，而是直接调用拷贝构造函数初始化。
+  3. 没有默认构造函数的类类型，因为使用初始化列表可以不必调用默认构造函数来初始化
 
-### initializer_list 列表初始化【C++11】
+### initializer_list 列表初始化
 
-用花括号初始化器列表列表初始化一个对象，其中对应构造函数接受一个 `std::initializer_list` 参数.
+用花括号初始化器列表初始化一个对象，其中对应构造函数接受一个 `std::initializer_list` 参数.
 
-<details><summary>initializer_list 使用</summary> 
+initializer_list 使用
 
 ```cpp
 #include <iostream>
@@ -707,27 +759,21 @@ int main()
 }
 ```
 
-</details>
-
 ### 面向对象
 
 面向对象程序设计（Object-oriented programming，OOP）是种具有对象概念的程序编程典范，同时也是一种程序开发的抽象方针。
 
-![面向对象特征](http://img.my.csdn.net/uploads/201211/22/1353564524_6375.png)
+![面向对象特征](https://gitee.com/huihut/interview/raw/master/images/面向对象基本特征.png)
 
 面向对象三大特征 —— 封装、继承、多态
 
 ### 封装
 
-* 把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。
-* 关键字：public, protected, friendly, private。不写默认为 friendly。
+把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。关键字：public, protected, private。不写默认为 private。
 
-| 关键字 | 当前类 | 包内 | 子孙类 | 包外 |
-| --- | --- | --- | --- | --- |
-| public | √ | √ | √ | √ |
-| protected | √ | √ | √ | × |
-| friendly | √ | √ | × | × |
-| private | √ | × | × | × |
+* `public` 成员：可以被任意实体访问
+* `protected` 成员：只允许被子类及本类的成员函数访问
+* `private` 成员：只允许被本类的成员函数、友元类或友元函数访问
 
 ### 继承
 
@@ -735,11 +781,17 @@ int main()
 
 ### 多态
 
-* 多态，即多种状态，在面向对象语言中，接口的多种不同的实现方式即为多态。
-* C++ 多态有两种：静态多态（早绑定）、动态多态（晚绑定）。静态多态是通过函数重载实现的；动态多态是通过虚函数实现的。
+* 多态，即多种状态（形态）。简单来说，我们可以将多态定义为消息以多种形式显示的能力。
 * 多态是以封装和继承为基础的。
+* C++ 多态分类及实现：
+    1. 重载多态（Ad-hoc Polymorphism，编译期）：函数重载、运算符重载
+    2. 子类型多态（Subtype Polymorphism，运行期）：虚函数
+    3. 参数多态性（Parametric Polymorphism，编译期）：类模板、函数模板
+    4. 强制多态（Coercion Polymorphism，编译期/运行期）：基本类型转换、自定义类型转换
 
-#### 静态多态（早绑定）
+> [The Four Polymorphisms in C++](https://catonmat.net/cpp-polymorphism)
+
+#### 静态多态（编译期/早绑定）
 
 函数重载
 
@@ -752,7 +804,7 @@ public:
 };
 ```
 
-#### 动态多态（晚绑定）
+#### 动态多态（运行期期/晚绑定）
 
 * 虚函数：用 virtual 修饰成员函数，使其成为虚函数
 
@@ -763,7 +815,7 @@ public:
 * 构造函数不能是虚函数（因为在调用构造函数时，虚表指针并没有在对象的内存空间中，必须要构造函数调用完成后才会形成虚表指针）
 * 内联函数不能是表现多态性时的虚函数，解释见：[虚函数（virtual）可以是内联函数（inline）吗？](https://github.com/huihut/interview#%E8%99%9A%E5%87%BD%E6%95%B0virtual%E5%8F%AF%E4%BB%A5%E6%98%AF%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0inline%E5%90%97)
 
-<details><summary>动态多态使用</summary> 
+动态多态使用
 
 ```cpp
 class Shape                     // 形状类
@@ -801,13 +853,11 @@ int main()
 }
 ```
 
-</details>
-
 ### 虚析构函数
 
 虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。
 
-<details><summary>虚析构函数使用</summary> 
+虚析构函数使用
 
 ```cpp
 class Shape
@@ -833,8 +883,6 @@ int main()
 }
 ```
 
-</details>
-
 ### 纯虚函数
 
 纯虚函数是一种特殊的虚函数，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。
@@ -845,17 +893,20 @@ virtual int A() = 0;
 
 ### 虚函数、纯虚函数
 
-[CSDN . C++ 中的虚函数、纯虚函数区别和联系](https://blog.csdn.net/u012260238/article/details/53610462)
+* 类里如果声明了虚函数，这个函数是实现的，哪怕是空实现，它的作用就是为了能让这个函数在它的子类里面可以被覆盖（override），这样的话，编译器就可以使用后期绑定来达到多态了。纯虚函数只是一个接口，是个函数的声明而已，它要留到子类里去实现。 
+* 虚函数在子类里面可以不重写；但纯虚函数必须在子类实现才可以实例化子类。
+* 虚函数的类用于 “实作继承”，继承接口的同时也继承了父类的实现。纯虚函数关注的是接口的统一性，实现由子类完成。 
+* 带纯虚函数的类叫抽象类，这种类不能直接生成对象，而只有被继承，并重写其虚函数后，才能使用。抽象类被继承后，子类可以继续是抽象类，也可以是普通类。
+* 虚基类是虚继承中的基类，具体见下文虚继承。
 
-* 类里如果声明了虚函数，这个函数是实现的，哪怕是空实现，它的作用就是为了能让这个函数在它的子类里面可以被覆盖，这样的话，这样编译器就可以使用后期绑定来达到多态了。纯虚函数只是一个接口，是个函数的声明而已，它要留到子类里去实现。 
-* 虚函数在子类里面也可以不重载的；但纯虚函数必须在子类去实现。
-* 虚函数的类用于 “实作继承”，继承接口的同时也继承了父类的实现。当然大家也可以完成自己的实现。纯虚函数关注的是接口的统一性，实现由子类完成。 
-* 带纯虚函数的类叫虚基类，这种基类不能直接生成对象，而只有被继承，并重写其虚函数后，才能使用。这样的类也叫抽象类。抽象类和大家口头常说的虚基类还是有区别的，在 C# 中用 abstract 定义抽象类，而在 C++ 中有抽象类的概念，但是没有这个关键字。抽象类被继承后，子类可以继续是抽象类，也可以是普通类，而虚基类，是含有纯虚函数的类，它如果被继承，那么子类就必须实现虚基类里面的所有纯虚函数，其子类不能是抽象类。
+> [CSDN . C++ 中的虚函数、纯虚函数区别和联系](https://blog.csdn.net/u012260238/article/details/53610462)
 
 ### 虚函数指针、虚函数表
 
 * 虚函数指针：在含有虚函数类的对象中，指向虚函数表，在运行时确定。
 * 虚函数表：在程序只读数据段（`.rodata section`，见：[目标文件存储结构](#%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84)），存放虚函数指针，如果派生类实现了基类的某个虚函数，则在虚表中覆盖原本基类的那个虚函数指针，在编译时根据类的声明创建。
+
+> [C++中的虚函数(表)实现机制以及用C语言对其进行的模拟实现](https://blog.twofei.com/496/)
 
 ### 虚继承
 
@@ -887,7 +938,7 @@ virtual int A() = 0;
 * 接口类：仅含有纯虚函数的抽象类
 * 聚合类：用户可以直接访问其成员，并且具有特殊的初始化语法形式。满足如下特点：
     * 所有成员都是 public
-    * 没有有定于任何构造函数
+    * 没有定义任何构造函数
     * 没有类内初始化
     * 没有基类，也没有 virtual 函数
 
@@ -904,7 +955,7 @@ virtual int A() = 0;
 
 用于分配、释放内存
 
-<details><summary>malloc、free 使用</summary> 
+malloc、free 使用
 
 申请内存，确认是否申请成功
 
@@ -920,15 +971,13 @@ free(p);
 p = nullptr;
 ```
 
-</details>
-
 #### new、delete
 
-1. new / new[]：完成两件事，先底层调用 malloc 分了配内存，然后调用构造函数（创建对象）。
+1. new / new[]：完成两件事，先底层调用 malloc 分配了内存，然后调用构造函数（创建对象）。
 2. delete/delete[]：也完成两件事，先调用析构函数（清理资源），然后底层调用 free 释放空间。
 3. new 在申请内存时会自动计算所需字节数，而 malloc 则需我们自己输入申请内存空间的字节数。
 
-<details><summary>new、delete 使用</summary> 
+new、delete 使用
 
 申请内存，确认是否申请成功
 
@@ -941,25 +990,23 @@ int main()
 }
 ```
 
-</details>
-
 #### 定位 new
 
-定位 new（placement new）允许我们向 new 传递额外的参数。
+定位 new（placement new）允许我们向 new 传递额外的地址参数，从而在预先指定的内存区域创建对象。
 
 ```cpp
-new (palce_address) type
-new (palce_address) type (initializers)
-new (palce_address) type [size]
-new (palce_address) type [size] { braced initializer list }
+new (place_address) type
+new (place_address) type (initializers)
+new (place_address) type [size]
+new (place_address) type [size] { braced initializer list }
 ```
 
-* `palce_address` 是个指针
+* `place_address` 是个指针
 * `initializers` 提供一个（可能为空的）以逗号分隔的初始值列表
 
 ### delete this 合法吗？
 
-[Is it legal (and moral) for a member function to say delete this?](https://isocpp.org/wiki/faq/freestore-mgmt#delete-this)
+> [Is it legal (and moral) for a member function to say delete this?](https://isocpp.org/wiki/faq/freestore-mgmt#delete-this)
 
 合法，但：
 
@@ -970,7 +1017,7 @@ new (palce_address) type [size] { braced initializer list }
 
 ### 如何定义一个只能在堆上（栈上）生成对象的类？
 
-[如何定义一个只能在堆上（栈上）生成对象的类?](https://www.nowcoder.com/questionTerminal/0a584aa13f804f3ea72b442a065a7618)
+> [如何定义一个只能在堆上（栈上）生成对象的类?](https://www.nowcoder.com/questionTerminal/0a584aa13f804f3ea72b442a065a7618)
 
 #### 只能在堆上
 
@@ -1035,7 +1082,7 @@ unique_ptr 是 C++11 才开始提供的类型，是一种在异常时可以帮�
 
 ### 强制类型转换运算符
 
-[MSDN . 强制转换运算符](https://msdn.microsoft.com/zh-CN/library/5f6c9f8h.aspx)
+> [MSDN . 强制转换运算符](https://msdn.microsoft.com/zh-CN/library/5f6c9f8h.aspx)
 
 #### static_cast
 
@@ -1071,7 +1118,7 @@ unique_ptr 是 C++11 才开始提供的类型，是一种在异常时可以帮�
 
 * 由于强制转换为引用类型失败，dynamic_cast 运算符引发 bad_cast 异常。
 
-<details><summary>bad_cast 使用</summary> 
+bad_cast 使用
 
 ```cpp
 try {  
@@ -1081,8 +1128,6 @@ catch (bad_cast b) {
     cout << "Caught: " << b.what();  
 } 
 ```
-
-</details>
 
 ### 运行时类型信息 (RTTI) 
 
@@ -1102,9 +1147,12 @@ catch (bad_cast b) {
 * type_info 类描述编译器在程序中生成的类型信息。 此类的对象可以有效存储指向类型的名称的指针。 type_info 类还可存储适合比较两个类型是否相等或比较其排列顺序的编码值。 类型的编码规则和排列顺序是未指定的，并且可能因程序而异。
 * 头文件：`typeinfo`
 
-<details><summary>typeid、type_info 使用</summary>
+typeid、type_info 使用
 
 ```cpp
+#include <iostream>
+using namespace std;
+
 class Flyable                       // 能飞的
 {
 public:
@@ -1117,12 +1165,13 @@ public:
     void foraging() {...}           // 觅食
     virtual void takeoff() {...}
     virtual void land() {...}
+    virtual ~Bird(){}
 };
 class Plane : public Flyable        // 飞机
 {
 public:
     void carry() {...}              // 运输
-    virtual void take off() {...}
+    virtual void takeoff() {...}
     virtual void land() {...}
 };
 
@@ -1138,7 +1187,7 @@ private:
     ...
 };
 
-class doSomething(Flyable *obj)                 // 做些事情
+void doSomething(Flyable *obj)                 // 做些事情
 {
     obj->takeoff();
 
@@ -1151,15 +1200,25 @@ class doSomething(Flyable *obj)                 // 做些事情
     }
 
     obj->land();
-};
+}
+
+int main(){
+	Bird *b = new Bird();
+	doSomething(b);
+	delete b;
+	b = nullptr;
+	return 0;
+}
 ```
 
-</details>
+<a id="effective"></a>
+
+## ⭐️ Effective
 
 ### Effective C++
 
 1. 视 C++ 为一个语言联邦（C、Object-Oriented C++、Template C++、STL）
-2. 尽量以 `const`、`enum`、`inline` 替换 `#define`（宁可以编译器替换预处理器）
+2. 宁可以编译器替换预处理器（尽量以 `const`、`enum`、`inline` 替换 `#define`）
 3. 尽可能使用 const
 4. 确定对象被使用前已先被初始化（构造时赋值（copy 构造函数）比 default 构造后赋值（copy assignment）效率高）
 5. 了解 C++ 默默编写并调用哪些函数（编译器暗自为 class 创建 default 构造函数、copy 构造函数、copy assignment 操作符、析构函数）
@@ -1186,50 +1245,105 @@ class doSomething(Flyable *obj)                 // 做些事情
 26. 尽可能延后变量定义式的出现时间（可增加程序清晰度并改善程序效率）
 27. 尽量少做转型动作（旧式：`(T)expression`、`T(expression)`；新式：`const_cast<T>(expression)`、`dynamic_cast<T>(expression)`、`reinterpret_cast<T>(expression)`、`static_cast<T>(expression)`、；尽量避免转型、注重效率避免 dynamic_casts、尽量设计成无需转型、可把转型封装成函数、宁可用新式转型）
 28. 避免使用 handles（包括 引用、指针、迭代器）指向对象内部（以增加封装性、使 const 成员函数的行为更像 const、降低 “虚吊号码牌”（dangling handles，如悬空指针等）的可能性）
+29. 为 “异常安全” 而努力是值得的（异常安全函数（Exception-safe functions）即使发生异常也不会泄露资源或允许任何数据结构败坏，分为三种可能的保证：基本型、强列型、不抛异常型）
+30. 透彻了解 inlining 的里里外外（inlining 在大多数 C++ 程序中是编译期的行为；inline 函数是否真正 inline，取决于编译器；大部分编译器拒绝太过复杂（如带有循环或递归）的函数 inlining，而所有对 virtual 函数的调用（除非是最平淡无奇的）也都会使 inlining 落空；inline 造成的代码膨胀可能带来效率损失；inline 函数无法随着程序库的升级而升级）
+31. 将文件间的编译依存关系降至最低（如果使用 object references 或 object pointers 可以完成任务，就不要使用 objects；如果能够，尽量以 class 声明式替换 class 定义式；为声明式和定义式提供不同的头文件）
+32. 确定你的 public 继承塑模出 is-a（是一种）关系（适用于 base classes 身上的每一件事情一定适用于 derived classes 身上，因为每一个 derived class 对象也都是一个 base class 对象）
+33. 避免遮掩继承而来的名字（可使用 using 声明式或转交函数（forwarding functions）来让被遮掩的名字再见天日）
+34. 区分接口继承和实现继承（在 public 继承之下，derived classes 总是继承 base class 的接口；pure virtual 函数只具体指定接口继承；非纯 impure virtual 函数具体指定接口继承及缺省实现继承；non-virtual 函数具体指定接口继承以及强制性实现继承）
+35. 考虑 virtual 函数以外的其他选择（如 Template Method 设计模式的 non-virtual interface（NVI）手法，将 virtual 函数替换为 “函数指针成员变量”，以 `tr1::function` 成员变量替换 virtual 函数，将继承体系内的 virtual 函数替换为另一个继承体系内的 virtual 函数）
+36. 绝不重新定义继承而来的 non-virtual 函数
+37. 绝不重新定义继承而来的缺省参数值，因为缺省参数值是静态绑定（statically bound），而 virtual 函数却是动态绑定（dynamically bound）
+38. 通过复合塑模 has-a（有一个）或 “根据某物实现出”（在应用域（application domain），复合意味 has-a（有一个）；在实现域（implementation domain），复合意味着 is-implemented-in-terms-of（根据某物实现出））
+39. 明智而审慎地使用 private 继承（private 继承意味着 is-implemented-in-terms-of（根据某物实现出），尽可能使用复合，当 derived class 需要访问 protected base class 的成员，或需要重新定义继承而来的时候 virtual 函数，或需要 empty base 最优化时，才使用 private 继承）
+40. 明智而审慎地使用多重继承（多继承比单一继承复杂，可能导致新的歧义性，以及对 virtual 继承的需要，但确有正当用途，如 “public 继承某个 interface class” 和 “private 继承某个协助实现的 class”；virtual 继承可解决多继承下菱形继承的二义性问题，但会增加大小、速度、初始化及赋值的复杂度等等成本）
+41. 了解隐式接口和编译期多态（class 和 templates 都支持接口（interfaces）和多态（polymorphism）；class 的接口是以签名为中心的显式的（explicit），多态则是通过 virtual 函数发生于运行期；template 的接口是奠基于有效表达式的隐式的（implicit），多态则是通过 template 具现化和函数重载解析（function overloading resolution）发生于编译期）
+42. 了解 typename 的双重意义（声明 template 类型参数是，前缀关键字 class 和 typename 的意义完全相同；请使用关键字 typename 标识嵌套从属类型名称，但不得在基类列（base class lists）或成员初值列（member initialization list）内以它作为 base class 修饰符）
+43. 学习处理模板化基类内的名称（可在 derived class templates 内通过 `this->` 指涉 base class templates 内的成员名称，或藉由一个明白写出的 “base class 资格修饰符” 完成）
+44. 将与参数无关的代码抽离 templates（因类型模板参数（non-type template parameters）而造成代码膨胀往往可以通过函数参数或 class 成员变量替换 template 参数来消除；因类型参数（type parameters）而造成的代码膨胀往往可以通过让带有完全相同二进制表述（binary representations）的实现类型（instantiation types）共享实现码）
+45. 运用成员函数模板接受所有兼容类型（请使用成员函数模板（member function templates）生成 “可接受所有兼容类型” 的函数；声明 member templates 用于 “泛化 copy 构造” 或 “泛化 assignment 操作” 时还需要声明正常的 copy 构造函数和 copy assignment 操作符）
+46. 需要类型转换时请为模板定义非成员函数（当我们编写一个 class template，而它所提供之 “与此 template 相关的” 函数支持 “所有参数之隐式类型转换” 时，请将那些函数定义为 “class template 内部的 friend 函数”）
+47. 请使用 traits classes 表现类型信息（traits classes 通过 templates 和 “templates 特化” 使得 “类型相关信息” 在编译期可用，通过重载技术（overloading）实现在编译期对类型执行 if...else 测试）
+48. 认识 template 元编程（模板元编程（TMP，template metaprogramming）可将工作由运行期移往编译期，因此得以实现早期错误侦测和更高的执行效率；TMP 可被用来生成 “给予政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码）
+49. 了解 new-handler 的行为（set\_new\_handler 允许客户指定一个在内存分配无法获得满足时被调用的函数；nothrow new 是一个颇具局限的工具，因为它只适用于内存分配（operator new），后继的构造函数调用还是可能抛出异常）
+50. 了解 new 和 delete 的合理替换时机（为了检测运用错误、收集动态分配内存之使用统计信息、增加分配和归还速度、降低缺省内存管理器带来的空间额外开销、弥补缺省分配器中的非最佳齐位、将相关对象成簇集中、获得非传统的行为）
+51. 编写 new 和 delete 时需固守常规（operator new 应该内涵一个无穷循环，并在其中尝试分配内存，如果它无法满足内存需求，就应该调用 new-handler，它也应该有能力处理 0 bytes 申请，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”；operator delete 应该在收到 null 指针时不做任何事，class 专属版本则还应该处理 “比正确大小更大的（错误）申请”）
+52. 写了 placement new 也要写 placement delete（当你写一个 placement operator new，请确定也写出了对应的 placement operator delete，否则可能会发生隐微而时断时续的内存泄漏；当你声明 placement new 和 placement delete，请确定不要无意识（非故意）地遮掩了它们地正常版本）
+53. 不要轻忽编译器的警告
+54. 让自己熟悉包括 TR1 在内的标准程序库（TR1，C++ Technical Report 1，C++11 标准的草稿文件）
+55. 让自己熟悉 Boost（准标准库）
 
+### More Effective c++
+
+1. 仔细区别 pointers 和 references（当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由 pointers 达成，你就应该选择 references；任何其他时候，请采用 pointers）
+2. 最好使用 C++ 转型操作符（`static_cast`、`const_cast`、`dynamic_cast`、`reinterpret_cast`）
+3. 绝不要以多态（polymorphically）方式处理数组（多态（polymorphism）和指针算术不能混用；数组对象几乎总是会涉及指针的算术运算，所以数组和多态不要混用）
+4. 非必要不提供 default constructor（避免对象中的字段被无意义地初始化）
+5. 对定制的 “类型转换函数” 保持警觉（单自变量 constructors 可通过简易法（explicit 关键字）或代理类（proxy classes）来避免编译器误用；隐式类型转换操作符可改为显式的 member function 来避免非预期行为）
+6. 区别 increment/decrement 操作符的前置（prefix）和后置（postfix）形式（前置式累加后取出，返回一个 reference；后置式取出后累加，返回一个 const 对象；处理用户定制类型时，应该尽可能使用前置式 increment；后置式的实现应以其前置式兄弟为基础）
+7. 千万不要重载 `&&`，`||` 和 `,` 操作符（`&&` 与 `||` 的重载会用 “函数调用语义” 取代 “骤死式语义”；`,` 的重载导致不能保证左侧表达式一定比右侧表达式更早被评估）
+8. 了解各种不同意义的 new 和 delete（`new operator`、`operator new`、`placement new`、`operator new[]`；`delete operator`、`operator delete`、`destructor`、`operator delete[]`）
+9. 利用 destructors 避免泄漏资源（在 destructors 释放资源可以避免异常时的资源泄漏）
+10. 在 constructors 内阻止资源泄漏（由于 C++ 只会析构已构造完成的对象，因此在构造函数可以使用 try...catch 或者 auto_ptr（以及与之相似的 classes） 处理异常时资源泄露问题）
+11. 禁止异常流出 destructors 之外（原因：一、避免 terminate 函数在 exception 传播过程的栈展开（stack-unwinding）机制种被调用；二、协助确保 destructors 完成其应该完成的所有事情）
+12. 了解 “抛出一个 exception” 与 “传递一个参数” 或 “调用一个虚函数” 之间的差异（第一，exception objects 总是会被复制（by pointer 除外），如果以 by value 方式捕捉甚至被复制两次，而传递给函数参数的对象则不一定得复制；第二，“被抛出成为 exceptions” 的对象，其被允许的类型转换动作比 “被传递到函数去” 的对象少；第三，catch 子句以其 “出现于源代码的顺序” 被编译器检验对比，其中第一个匹配成功者便执行，而调用一个虚函数，被选中执行的是那个 “与对象类型最佳吻合” 的函数）
+13. 以 by reference 方式捕获 exceptions（可避免对象删除问题、exception objects 的切割问题，可保留捕捉标准 exceptions 的能力，可约束 exception object 需要复制的次数）
+14. 明智运用 exception specifications（exception specifications 对 “函数希望抛出什么样的 exceptions” 提供了卓越的说明；也有一些缺点，包括编译器只对它们做局部性检验而很容易不经意地违反，与可能会妨碍更上层的 exception 处理函数处理未预期的 exceptions）
+15. 了解异常处理的成本（粗略估计，如果使用 try 语句块，代码大约整体膨胀 5%-10%，执行速度亦大约下降这个数；因此请将你对 try 语句块和 exception specifications 的使用限制于非用不可的地点，并且在真正异常的情况下才抛出 exceptions）
+16. 谨记 80-20 法则（软件的整体性能几乎总是由其构成要素（代码）的一小部分决定的，可使用程序分析器（program profiler）识别出消耗资源的代码）
+17. 考虑使用 lazy evaluation（缓式评估）（可应用于：Reference Counting（引用计数）来避免非必要的对象复制、区分 operator[] 的读和写动作来做不同的事情、Lazy Fetching（缓式取出）来避免非必要的数据库读取动作、Lazy Expression Evaluation（表达式缓评估）来避免非必要的数值计算动作）
+18. 分期摊还预期的计算成本（当你必须支持某些运算而其结构几乎总是被需要，或其结果常常被多次需要的时候，over-eager evaluation（超急评估）可以改善程序效率）
 
 ### Google C++ Style Guide
 
-<details><summary>Google C++ Style Guide 图</summary>
+* 英文：[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+* 中文：[C++ 风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents/)
 
-![Google C++ Style Guide](http://img.blog.csdn.net/20140713220242000)
+### 其他
 
-> 图片来源于：[CSDN . 一张图总结Google C++编程规范(Google C++ Style Guide)](http://blog.csdn.net/voidccc/article/details/37599203)
+* [Bjarne Stroustrup 的常见问题](http://www.stroustrup.com/bs_faq.html)
+* [Bjarne Stroustrup 的 C++ 风格和技巧常见问题](http://www.stroustrup.com/bs_faq2.html)
 
-</details>
+<a id="stl"></a>
 
-## STL
+## 📦 STL
 
-### 索引
+### STL 索引
 
-[STL 方法含义](https://github.com/huihut/interview/tree/master/STL)
+[STL 方法含义索引](https://github.com/huihut/interview/tree/master/STL)
 
-### 容器
+### STL 容器
 
-容器 | 底层数据结构 | 有无序 | 可不可重复 | 其他
----|---|---|---|---
-[array](https://github.com/huihut/interview/tree/master/STL#array)|数组|无序|可重复|支持快速随机访问
-[vector](https://github.com/huihut/interview/tree/master/STL#vector)|数组|无序|可重复|支持快速随机访问
-[list](https://github.com/huihut/interview/tree/master/STL#list)|双向链表|无序|可重复|支持快速增删
-[deque](https://github.com/huihut/interview/tree/master/STL#deque)|双端队列（一个中央控制器+多个缓冲区）|无序|可重复|支持首尾快速增删，支持随机访问
-[stack](https://github.com/huihut/interview/tree/master/STL#stack)|deque 或 list 封闭头端开口|无序|可重复|不用 vector 的原因应该是容量大小有限制，扩容耗时
-[queue](https://github.com/huihut/interview/tree/master/STL#queue)|deque 或 list 封闭底端出口和前端入口|无序|可重复|不用 vector 的原因应该是容量大小有限制，扩容耗时
-[priority_queue](https://github.com/huihut/interview/tree/master/STL#priority_queue)|vector|无序|可重复|vector容器+heap处理规则
-[set](https://github.com/huihut/interview/tree/master/STL#set)|红黑树|有序|不可重复|
-[multiset](https://github.com/huihut/interview/tree/master/STL#multiset)|红黑树|有序|可重复|
-[map](https://github.com/huihut/interview/tree/master/STL#map)|红黑树|有序|不可重复|
-[multimap](https://github.com/huihut/interview/tree/master/STL#multimap)|红黑树|有序|可重复|
-hash_set|hash表|无序|不可重复|
-hash_multiset|hash表|无序|可重复|
-hash_map|hash表|无序|不可重复|
-hash_multimap|hash表|无序|可重复|
+容器 | 底层数据结构 | 时间复杂度 | 有无序 | 可不可重复 | 其他
+---|---|---|---|---|---
+[array](https://github.com/huihut/interview/tree/master/STL#array)|数组|随机读改 O(1)|无序|可重复|支持随机访问
+[vector](https://github.com/huihut/interview/tree/master/STL#vector)|数组|随机读改、尾部插入、尾部删除 O(1)<br/>头部插入、头部删除 O(n)|无序|可重复|支持随机访问
+[deque](https://github.com/huihut/interview/tree/master/STL#deque)|双端队列|头尾插入、头尾删除 O(1)|无序|可重复|一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问
+[forward_list](https://github.com/huihut/interview/tree/master/STL#forward_list)|单向链表|插入、删除 O(1)|无序|可重复|不支持随机访问
+[list](https://github.com/huihut/interview/tree/master/STL#list)|双向链表|插入、删除 O(1)|无序|可重复|不支持随机访问
+[stack](https://github.com/huihut/interview/tree/master/STL#stack)|deque / list|顶部插入、顶部删除 O(1)|无序|可重复|deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时
+[queue](https://github.com/huihut/interview/tree/master/STL#queue)|deque / list|尾部插入、头部删除 O(1)|无序|可重复|deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时
+[priority_queue](https://github.com/huihut/interview/tree/master/STL#priority_queue)|vector + max-heap|插入、删除 O(log<sub>2</sub>n)|有序|可重复|vector容器+heap处理规则
+[set](https://github.com/huihut/interview/tree/master/STL#set)|红黑树|插入、删除、查找 O(log<sub>2</sub>n)|有序|不可重复|
+[multiset](https://github.com/huihut/interview/tree/master/STL#multiset)|红黑树|插入、删除、查找 O(log<sub>2</sub>n)|有序|可重复|
+[map](https://github.com/huihut/interview/tree/master/STL#map)|红黑树|插入、删除、查找 O(log<sub>2</sub>n)|有序|不可重复|
+[multimap](https://github.com/huihut/interview/tree/master/STL#multimap)|红黑树|插入、删除、查找 O(log<sub>2</sub>n)|有序|可重复|
+[unordered_set](https://github.com/huihut/interview/tree/master/STL#unordered_set)|哈希表|插入、删除、查找 O(1) 最差 O(n)|无序|不可重复|
+[unordered_multiset](https://github.com/huihut/interview/tree/master/STL#unordered_multiset)|哈希表|插入、删除、查找 O(1) 最差 O(n)|无序|可重复|
+[unordered_map](https://github.com/huihut/interview/tree/master/STL#unordered_map)|哈希表|插入、删除、查找 O(1) 最差 O(n)|无序|不可重复|
+[unordered_multimap](https://github.com/huihut/interview/tree/master/STL#unordered_multimap)|哈希表|插入、删除、查找 O(1) 最差 O(n)|无序|可重复|
 
-### STL 空间配置器如何处理内存的？能说一下它的大概实现方案吗？为什么是 8Bytes 的倍数？
+### STL 算法
 
-* 大于 128Bytes 用 malloc 直接申请
-* 小于 128Bytes 使用一个 8Bytes 倍数的数组来进行申请（原因是为了提高效率，同时对于 64 位的机器而言，地址大小为 8Bytes）
+算法 | 底层算法 | 时间复杂度 | 可不可重复
+---|---|---|---
+[find](http://www.cplusplus.com/reference/algorithm/find/)|顺序查找|O(n)|可重复
+[sort](https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/stl_algo.h#L4808)|[内省排序](https://en.wikipedia.org/wiki/Introsort)|O(n*log<sub>2</sub>n)|可重复
 
-## 数据结构
+
+<a id="data-structure"></a>
+
+## 〽️ 数据结构
 
 ### 顺序结构
 
@@ -1237,7 +1351,7 @@ hash_multimap|hash表|无序|可重复|
 
 [SqStack.cpp](DataStructure/SqStack.cpp)
 
-<details><summary>顺序栈数据结构和图片</summary>
+顺序栈数据结构和图片
 
 ```cpp
 typedef struct {
@@ -1245,16 +1359,14 @@ typedef struct {
 	int top;
 	int size;
 	int increment;
-} SqSrack;
+} SqStack;
 ```
 
-![](images/SqStack.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/SqStack.png)
 
 #### 队列（Sequence Queue）
 
-<details><summary>队列数据结构</summary>
+队列数据结构
 
 ```cpp
 typedef struct {
@@ -1265,33 +1377,27 @@ typedef struct {
 }SqQueue;
 ```
 
-</details>
-
 ##### 非循环队列
 
-<details><summary>非循环队列图片</summary>
+非循环队列图片
 
-![](images/SqQueue.png)
+![](https://gitee.com/huihut/interview/raw/master/images/SqQueue.png)
 
 `SqQueue.rear++`
 
-</details>
-
 ##### 循环队列
 
-<details><summary>循环队列图片</summary>
+循环队列图片
 
-![](images/SqLoopStack.png)
+![](https://gitee.com/huihut/interview/raw/master/images/SqLoopStack.png)
 
 `SqQueue.rear = (SqQueue.rear + 1) % SqQueue.maxSize`
-
-</details>
 
 #### 顺序表（Sequence List）
 
 [SqList.cpp](DataStructure/SqList.cpp)
 
-<details><summary>顺序表数据结构和图片</summary>
+顺序表数据结构和图片
 
 ```cpp
 typedef struct {
@@ -1302,9 +1408,7 @@ typedef struct {
 } SqList;
 ```
 
-![](images/SqList.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/SqList.png)
 
 
 ### 链式结构
@@ -1313,7 +1417,7 @@ typedef struct {
 
 [LinkList_with_head.cpp](DataStructure/LinkList_with_head.cpp)
 
-<details><summary>链式数据结构</summary>
+链式数据结构
 
 ```cpp
 typedef struct LNode {
@@ -1322,42 +1426,31 @@ typedef struct LNode {
 } LNode, *LinkList; 
 ```
 
-</details>
-
 #### 链队列（Link Queue）
 
-<details><summary>链队列图片</summary>
+链队列图片
 
-![](images/LinkQueue.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/LinkQueue.png)
 
 #### 线性表的链式表示
 
 ##### 单链表（Link List）
 
-<details><summary>单链表图片</summary>
+单链表图片
 
-![](images/LinkList.png)
-
-</details>
-
+![](https://gitee.com/huihut/interview/raw/master/images/LinkList.png)
 
 ##### 双向链表（Du-Link-List）
 
-<details><summary>双向链表图片</summary>
+双向链表图片
 
-![](images/DuLinkList.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/DuLinkList.png)
 
 ##### 循环链表（Cir-Link-List）
 
-<details><summary>循环链表图片</summary>
+循环链表图片
 
-![](images/CirLinkList.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/CirLinkList.png)
 
 ### 哈希表
 
@@ -1385,7 +1478,7 @@ typedef struct LNode {
 
 #### 线性探测的哈希表数据结构
 
-<details><summary>线性探测的哈希表数据结构和图片</summary>
+线性探测的哈希表数据结构和图片
 
 ```cpp
 typedef char KeyType;
@@ -1402,10 +1495,7 @@ typedef struct {
 }HashTable;
 ```
 
-![](images/HashTable.png)
-
-</details>
-
+![](https://gitee.com/huihut/interview/raw/master/images/HashTable.png)
 
 ### 递归
 
@@ -1419,20 +1509,20 @@ typedef struct {
     * 问题的分解
     * 问题规模的分解
 * 折半查找（递归）
-* 归并查找（递归）
+* 归并排序（递归）
 * 快速排序（递归）
 
 #### 递归与迭代
 
 * 迭代：反复利用变量旧值推出新值
 * 折半查找（迭代）
-* 归并查找（迭代）
+* 归并排序（迭代）
 
 #### 广义表
 
 ##### 头尾链表存储表示
 
-<details><summary>广义表的头尾链表存储表示和图片</summary>
+广义表的头尾链表存储表示和图片
 
 ```cpp
 // 广义表的头尾链表存储表示
@@ -1453,13 +1543,11 @@ typedef struct GLNode {
 } *GList, GLNode;
 ```
 
-![](images/GeneralizedList1.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/GeneralizedList1.png)
 
 ##### 扩展线性链表存储表示
 
-<details><summary>扩展线性链表存储表示和图片</summary>
+扩展线性链表存储表示和图片
 
 ```cpp
 // 广义表的扩展线性链表存储表示
@@ -1478,9 +1566,7 @@ typedef struct GLNode1 {
 } *GList1, GLNode1;
 ```
 
-![](images/GeneralizedList2.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/GeneralizedList2.png)
 
 ### 二叉树
 
@@ -1494,12 +1580,12 @@ typedef struct GLNode1 {
 4. 有 n 个结点的完全二叉树深度 k = ⌊ log<sub>2</sub>(n) ⌋ + 1 
 5. 对于含 n 个结点的完全二叉树中编号为 i （1 <= i <= n） 的结点
     1. 若 i = 1，为根，否则双亲为 ⌊ i / 2 ⌋
-    2. 若 2i > n，则 i 结点没有左孩子，否则孩子编号为 2i + 1
+    2. 若 2i > n，则 i 结点没有左孩子，否则孩子编号为 2i
     3. 若 2i + 1 > n，则 i 结点没有右孩子，否则孩子编号为 2i + 1
 
 #### 存储结构
 
-<details><summary>二叉树数据结构</summary>
+二叉树数据结构
 
 ```cpp
 typedef struct BiTNode
@@ -1509,24 +1595,17 @@ typedef struct BiTNode
 }BiTNode, *BiTree;
 ```
 
-</details>
-
-
 ##### 顺序存储
 
-<details><summary>二叉树顺序存储图片</summary>
+二叉树顺序存储图片
 
-![](images/SqBinaryTree.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/SqBinaryTree.png)
 
 ##### 链式存储
 
-<details><summary>二叉树链式存储图片</summary>
+二叉树链式存储图片
 
-![](images/LinkBinaryTree.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/LinkBinaryTree.png)
 
 #### 遍历方式
 
@@ -1569,11 +1648,9 @@ typedef struct BiTNode
 * 平衡二叉树必定是二叉搜索树，反之则不一定
 * 最小二叉平衡树的节点的公式：`F(n)=F(n-1)+F(n-2)+1` （1 是根节点，F(n-1) 是左子树的节点数量，F(n-2) 是右子树的节点数量）
 
-<details><summary>平衡二叉树图片</summary>
+平衡二叉树图片
 
-![](images/Self-balancingBinarySearchTree.png)
-
-</details>
+![](https://gitee.com/huihut/interview/raw/master/images/Self-balancingBinarySearchTree.png)
 
 ##### 最小失衡树
 
@@ -1587,6 +1664,8 @@ typedef struct BiTNode
 * RL 型：右孩子的左子树，先右旋，再左旋
 
 #### 红黑树
+
+[RedBlackTree.cpp](DataStructure/RedBlackTree.cpp)
 
 ##### 红黑树的特征是什么？
 
@@ -1613,11 +1692,9 @@ typedef struct BiTNode
 
 #### B 树（B-tree）、B+ 树（B+-tree）
 
-<details><summary>B 树、B+ 树图片</summary>
+B 树、B+ 树图片
 
 ![B 树（B-tree）、B+ 树（B+-tree）](https://i.stack.imgur.com/l6UyF.png)
-
-</details>
 
 ##### 特点
 
@@ -1646,11 +1723,9 @@ typedef struct BiTNode
 
 #### 八叉树
 
-<details><summary>八叉树图片</summary>
+八叉树图片
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Octree2.png/400px-Octree2.png)
-
-</details>
 
 八叉树（octree），或称八元树，是一种用于描述三维空间（划分空间）的树状数据结构。八叉树的每个节点表示一个正方体的体积元素，每个节点有八个子节点，这八个子节点所表示的体积元素加在一起就等于父节点的体积。一般中心点作为节点的分叉中心。
 
@@ -1659,9 +1734,9 @@ typedef struct BiTNode
 * 三维计算机图形
 * 最邻近搜索
 
-### 图
+<a id="algorithm"></a>
 
-## 算法
+## ⚡️ 算法
 
 ### 排序
 
@@ -1671,8 +1746,8 @@ typedef struct BiTNode
 [选择排序](Algorithm/SelectionSort.h) | O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(1)|数组不稳定、链表稳定
 [插入排序](Algorithm/InsertSort.h) | O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(1)|稳定
 [快速排序](Algorithm/QuickSort.h) | O(n*log<sub>2</sub>n) |  O(n<sup>2</sup>) | O(log<sub>2</sub>n) | 不稳定
-[堆排序](Algorithm/HeapSort.cpp) | O(n*log<sub>2</sub>n)|O(n<sup>2</sup>)|O(1)|不稳定
-[归并排序](Algorithm/MergeSort.h) | O(n*log<sub>2</sub>n) | O(n*log<sub>2</sub>n)|O(1)|稳定
+[堆排序](Algorithm/HeapSort.cpp) | O(n*log<sub>2</sub>n)|O(n*log<sub>2</sub>n)|O(1)|不稳定
+[归并排序](Algorithm/MergeSort.h) | O(n*log<sub>2</sub>n) | O(n*log<sub>2</sub>n)|O(n)|稳定
 [希尔排序](Algorithm/ShellSort.h) | O(n*log<sup>2</sup>n)|O(n<sup>2</sup>)|O(1)|不稳定
 [计数排序](Algorithm/CountSort.cpp) | O(n+m)|O(n+m)|O(n+m)|稳定
 [桶排序](Algorithm/BucketSort.cpp) | O(n)|O(n)|O(m)|稳定
@@ -1698,7 +1773,24 @@ typedef struct BiTNode
 2-3树 | O(log<sub>2</sub>n - log<sub>3</sub>n) |   | 
 B树/B+树 |O(log<sub>2</sub>n) |   | 
 
-## Problems
+### 图搜索算法
+
+图搜索算法 |数据结构| 遍历时间复杂度 | 空间复杂度
+---|---|---|---
+[BFS广度优先搜索](https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2)|邻接矩阵<br/>邻接链表|O(\|v\|<sup>2</sup>)<br/>O(\|v\|+\|E\|)|O(\|v\|<sup>2</sup>)<br/>O(\|v\|+\|E\|)
+[DFS深度优先搜索](https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2)|邻接矩阵<br/>邻接链表|O(\|v\|<sup>2</sup>)<br/>O(\|v\|+\|E\|)|O(\|v\|<sup>2</sup>)<br/>O(\|v\|+\|E\|)
+
+### 其他算法
+
+算法 |思想| 应用
+---|---|---
+[分治法](https://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95)|把一个复杂的问题分成两个或更多的相同或相似的子问题，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并|[循环赛日程安排问题](https://github.com/huihut/interview/tree/master/Problems/RoundRobinProblem)、排序算法（快速排序、归并排序）
+[动态规划](https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92)|通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法，适用于有重叠子问题和最优子结构性质的问题|[背包问题](https://github.com/huihut/interview/tree/master/Problems/KnapsackProblem)、斐波那契数列
+[贪心法](https://zh.wikipedia.org/wiki/%E8%B4%AA%E5%BF%83%E6%B3%95)|一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法|旅行推销员问题（最短路径问题）、最小生成树、哈夫曼编码
+
+<a id="problems"></a>
+
+## ❓ Problems
 
 ### Single Problem
 
@@ -1727,7 +1819,9 @@ B树/B+树 |O(log<sub>2</sub>n) |   |
 
 * [牛客网 . 在线编程专题](https://www.nowcoder.com/activity/oj)
 
-## 操作系统
+<a id="os"></a>
+
+## 💻 操作系统
 
 ### 进程与线程
 
@@ -1764,7 +1858,7 @@ B树/B+树 |O(log<sub>2</sub>n) |   |
     * 缺点：
         1. 通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题
         2. 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信
-* 套接字（Socket）：可用于不同及其间的进程通信
+* 套接字（Socket）：可用于不同计算机间的进程通信
     * 优点：
         1. 传输数据为字节级，传输数据可自定义，数据量小效率高
         2. 传输数据时间短，性能高
@@ -1777,7 +1871,7 @@ B树/B+树 |O(log<sub>2</sub>n) |   |
 * 锁机制：包括互斥锁/量（mutex）、读写锁（reader-writer lock）、自旋锁（spin lock）、条件变量（condition）
     * 互斥锁/量（mutex）：提供了以排他方式防止数据结构被并发修改的方法。
     * 读写锁（reader-writer lock）：允许多个线程同时读共享数据，而对写操作是互斥的。
-    * 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持着是否已经释放锁。
+    * 自旋锁（spin lock）与互斥锁类似，都是为了保护共享资源。互斥锁是当资源被占用，申请者进入睡眠状态；而自旋锁则循环检测保持者是否已经释放锁。
     * 条件变量（condition）：可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。
 * 信号量机制(Semaphore)
     * 无名线程信号量
@@ -1796,7 +1890,7 @@ B树/B+树 |O(log<sub>2</sub>n) |   |
 
 #### 线程之间私有和共享的资源
 
-* 私有：线程栈，寄存器，程序寄存器
+* 私有：线程栈，寄存器，程序计数器
 * 共享：堆，地址空间，全局变量，静态变量
 
 #### 多进程与多线程间的对比、优劣与选择
@@ -1833,7 +1927,7 @@ B树/B+树 |O(log<sub>2</sub>n) |   |
 
 #### 原因
 
-在现代操作系统里，同一时间可能有多个内核执行流在执行，因此内核其实象多进程多线程编程一样也需要一些同步机制来同步各执行单元对共享数据的访问。尤其是在多处理器系统上，更需要一些同步机制来同步不同处理器上的执行单元对共享的数据的访问。
+在现代操作系统里，同一时间可能有多个内核执行流在执行，因此内核其实像多进程多线程编程一样也需要一些同步机制来同步各执行单元对共享数据的访问。尤其是在多处理器系统上，更需要一些同步机制来同步不同处理器上的执行单元对共享的数据的访问。
 
 #### 同步方式
 
@@ -1898,17 +1992,14 @@ B树/B+树 |O(log<sub>2</sub>n) |   |
 大端|12|34|56|78
 小端|78|56|34|12
 
+大端小端图片
 
-<details><summary>大端小端图片</summary>
-
-![大端序](images/CPU-Big-Endian.svg.png)
-![小端序](images/CPU-Little-Endian.svg.png)
-
-</details>
+![大端序](https://gitee.com/huihut/interview/raw/master/images/CPU-Big-Endian.svg.png)
+![小端序](https://gitee.com/huihut/interview/raw/master/images/CPU-Little-Endian.svg.png)
 
 ##### 判断大端小端
 
-<details><summary>判断大端小端</summary>
+判断大端小端
 
 可以这样判断自己 CPU 字节序是大端还是小端：
 
@@ -1929,8 +2020,6 @@ int main()
 }
 ```
 
-</details>
-
 ##### 各架构处理器的字节序
 
 * x86（Intel、AMD）、MOS Technology 6502、Z80、VAX、PDP-11 等处理器为小端序；
@@ -1939,7 +2028,7 @@ int main()
 
 #### 网络字节序
 
-网络字节顺序是 TCP/IP 中规定好的一种数据表示格式，它与具体的 CPU 类型、操作系统等无关，从而可以保重数据在不同主机之间传输时能够被正确解释。
+网络字节顺序是 TCP/IP 中规定好的一种数据表示格式，它与具体的 CPU 类型、操作系统等无关，从而可以保证数据在不同主机之间传输时能够被正确解释。
 
 网络字节顺序采用：大端（Big Endian）排列方式。
 
@@ -1964,11 +2053,15 @@ int main()
 * 最近最久未使用（LRU）算法
 * 时钟（Clock）置换算法
 
-## 计算机网络
+<a id="computer-network"></a>
 
-计算机经网络体系结构：
+## ☁️ 计算机网络
 
-![计算机经网络体系结构](images/计算机经网络体系结构.png)
+> 本节部分知识点来自《计算机网络（第 7 版）》
+
+计算机网络体系结构：
+
+![计算机网络体系结构](https://gitee.com/huihut/interview/raw/master/images/计算机网络体系结构.png)
 
 ### 各层作用及协议
 
@@ -1985,12 +2078,12 @@ int main()
 
 ### 物理层
 
-* 传输数据的单位 ———— 比特
+* 传输数据的单位：比特
 * 数据传输系统：源系统（源点、发送器） --> 传输系统 --> 目的系统（接收器、终点）
 
 通道：
 * 单向通道（单工通道）：只有一个方向通信，没有反方向交互，如广播
-* 双向交替通行（半双工通信）：通信双方都可发消息，但不能同时发送或接收
+* 双向交替通信（半双工通信）：通信双方都可发消息，但不能同时发送或接收
 * 双向同时通信（全双工通信）：通信双方可以同时发送和接收信息
 
 通道复用技术：
@@ -2007,7 +2100,7 @@ int main()
 
 #### 点对点信道
 
-* 数据单元 ———— 帧
+* 数据单元：帧
 
 三个基本问题：
 * 封装成帧：把网络层的 IP 数据报封装成帧，`SOH - 数据部分 - EOT`
@@ -2047,17 +2140,17 @@ E  类 | 前五位固定为 11110，后面保留为今后所用
 
 IP 数据报格式：
 
-![IP 数据报格式](images/IP数据报格式.png)
+![IP 数据报格式](https://gitee.com/huihut/interview/raw/master/images/IP数据报格式.png)
 
 #### ICMP 网际控制报文协议
 
 ICMP 报文格式：
 
-![ICMP 报文格式](images/ICMP报文格式.png)
+![ICMP 报文格式](https://gitee.com/huihut/interview/raw/master/images/ICMP报文格式.png)
 
 应用：
 * PING（Packet InterNet Groper，分组网间探测）测试两个主机之间的连通性
-    * TTL（Time To Live，生存时间）该字段指定 IP 包被路由器丢弃之前允许通过的最大网段数量
+* TTL（Time To Live，生存时间）该字段指定 IP 包被路由器丢弃之前允许通过的最大网段数量
 
 #### 内部网关协议
 
@@ -2123,11 +2216,11 @@ TCP 如何保证可靠传输：
 
 TCP 报文结构
 
-![TCP 报文](images/TCP报文.png)
+![TCP 报文](https://gitee.com/huihut/interview/raw/master/images/TCP报文.png)
 
 TCP 首部
 
-![TCP 首部](images/TCP首部.png)
+![TCP 首部](https://gitee.com/huihut/interview/raw/master/images/TCP首部.png)
 
 TCP：状态控制码（Code，Control Flag），占 6 比特，含义如下：
 * URG：紧急比特（urgent），当 `URG＝1` 时，表明紧急指针字段有效，代表该封包为紧急封包。它告诉系统此报文段中有紧急数据，应尽快传送(相当于高优先级的数据)， 且上图中的 Urgent Pointer 字段也会被启用。
@@ -2151,11 +2244,11 @@ TCP：状态控制码（Code，Control Flag），占 6 比特，含义如下：
 
 UDP 报文结构
 
-![UDP 报文](images/UDP报文.png)
+![UDP 报文](https://gitee.com/huihut/interview/raw/master/images/UDP报文.png)
 
 UDP 首部
 
-![UDP 首部](images/UDP首部.png)
+![UDP 首部](https://gitee.com/huihut/interview/raw/master/images/UDP首部.png)
 
 > TCP/UDP 图片来源于：<https://github.com/JerryC8080/understand-tcp-udp>
 
@@ -2182,13 +2275,44 @@ TCP 是一个基于字节流的传输服务（UDP 基于报文的），“流”
 * 在数据包之间设置边界，如添加特殊符号 `\r\n` 标记。FTP 协议正是这么做的。但问题在于如果数据正文中也含有 `\r\n`，则会误判为消息的边界。
 * 使用更加复杂的应用层协议。
 
+#### TCP 流量控制
+
+##### 概念
+
+流量控制（flow control）就是让发送方的发送速率不要太快，要让接收方来得及接收。
+
+##### 方法
+
+利用可变窗口进行流量控制
+
+![](https://gitee.com/huihut/interview/raw/master/images/利用可变窗口进行流量控制举例.png)
+
+#### TCP 拥塞控制
+
+##### 概念
+
+拥塞控制就是防止过多的数据注入到网络中，这样可以使网络中的路由器或链路不致过载。
+
+##### 方法
+
+* 慢开始( slow-start )
+* 拥塞避免( congestion avoidance )
+* 快重传( fast retransmit )
+* 快恢复( fast recovery )
+
+TCP的拥塞控制图
+
+![](https://gitee.com/huihut/interview/raw/master/images/TCP拥塞窗口cwnd在拥塞控制时的变化情况.png)
+![](https://gitee.com/huihut/interview/raw/master/images/快重传示意图.png)
+![](https://gitee.com/huihut/interview/raw/master/images/TCP的拥塞控制流程图.png)
+
 #### TCP 传输连接管理
 
-> 因为 TCP 三次握手建立连接、四次挥手释放连接很重要，所以附上《计算机网络（第 7 版）-谢希仁》书中对此章的详细描述：<https://github.com/huihut/interview/blob/master/images/TCP-transport-connection-management.png>
+> 因为 TCP 三次握手建立连接、四次挥手释放连接很重要，所以附上《计算机网络（第 7 版）-谢希仁》书中对此章的详细描述：<https://gitee.com/huihut/interview/raw/master/images/TCP-transport-connection-management.png>
 
 ##### TCP 三次握手建立连接
 
-![UDP 报文](images/TCP三次握手建立连接.png)
+![UDP 报文](https://gitee.com/huihut/interview/raw/master/images/TCP三次握手建立连接.png)
 
 【TCP 建立连接全过程解释】
 
@@ -2209,11 +2333,11 @@ TCP 是一个基于字节流的传输服务（UDP 基于报文的），“流”
 
 【答案三】为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。
 
-> [《计算机网络（第 7 版）-谢希仁》](https://github.com/huihut/interview/blob/master/images/TCP-transport-connection-management.png)
+> [《计算机网络（第 7 版）-谢希仁》](https://gitee.com/huihut/interview/raw/master/images/TCP-transport-connection-management.png)
 
 ##### TCP 四次挥手释放连接
 
-![UDP 报文](images/TCP四次挥手释放连接.png)
+![UDP 报文](https://gitee.com/huihut/interview/raw/master/images/TCP四次挥手释放连接.png)
 
 【TCP 释放连接全过程解释】
 
@@ -2244,11 +2368,9 @@ TCP 是一个基于字节流的传输服务（UDP 基于报文的），“流”
 
 #### TCP 有限状态机
 
-<details><summary>TCP 有限状态机图片</summary>
+TCP 有限状态机图片
 
-![TCP 的有限状态机](images/TCP的有限状态机.png)
-
-</details>
+![TCP 的有限状态机](https://gitee.com/huihut/interview/raw/master/images/TCP的有限状态机.png)
 
 ### 应用层
 
@@ -2338,13 +2460,15 @@ TRACE | 回显服务器收到的请求，主要用于测试或诊断
     * 用于内部网络管理员作为对所有电脑作中央管理的手段
 * SNMP（Simple Network Management Protocol，简单网络管理协议）构成了互联网工程工作小组（IETF，Internet Engineering Task Force）定义的 Internet 协议族的一部分。该协议能够支持网络管理系统，用以监测连接到网络上的设备是否有任何引起管理上关注的情况。
 
-## 网络编程
+<a id="network-programming"></a>
+
+## 🌩 网络编程
 
 ### Socket
 
-[Linux Socket 编程（不限 Linux）](https://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html)
+> [Linux Socket 编程（不限 Linux）](https://www.cnblogs.com/skynet/archive/2010/12/12/1903949.html)
 
-![Socket 客户端服务器通讯](images/socket客户端服务器通讯.jpg)
+![Socket 客户端服务器通讯](https://gitee.com/huihut/interview/raw/master/images/socket客户端服务器通讯.jpg)
 
 
 #### Socket 中的 read()、write() 函数
@@ -2403,22 +2527,160 @@ ssize_t write(int fd, const void *buf, size_t count);
 
 这样每个方向上都有一个 FIN 和 ACK。
 
-## 数据库
+<a id="database"></a>
 
-* 数据库事务四大特性：原子性、一致性、分离性、持久性
+## 💾 数据库
+
+> 本节部分知识点来自《数据库系统概论（第 5 版）》
+
+### 基本概念
+
+* 数据（data）：描述事物的符号记录称为数据。
+* 数据库（DataBase，DB）：是长期存储在计算机内、有组织的、可共享的大量数据的集合，具有永久存储、有组织、可共享三个基本特点。
+* 数据库管理系统（DataBase Management System，DBMS）：是位于用户与操作系统之间的一层数据管理软件。
+* 数据库系统（DataBase System，DBS）：是有数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator DBA）组成的存储、管理、处理和维护数据的系统。
+* 实体（entity）：客观存在并可相互区别的事物称为实体。
+* 属性（attribute）：实体所具有的某一特性称为属性。
+* 码（key）：唯一标识实体的属性集称为码。
+* 实体型（entity type）：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型。
+* 实体集（entity set）：同一实体型的集合称为实体集。
+* 联系（relationship）：实体之间的联系通常是指不同实体集之间的联系。
+* 模式（schema）：模式也称逻辑模式，是数据库全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。
+* 外模式（external schema）：外模式也称子模式（subschema）或用户模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。
+* 内模式（internal schema）：内模式也称为存储模式（storage schema），一个数据库只有一个内模式。他是数据物理结构和存储方式的描述，是数据库在数据库内部的组织方式。
+
+### 常用数据模型
+
+* 层次模型（hierarchical model）
+* 网状模型（network model）
+* 关系模型（relational model）
+    * 关系（relation）：一个关系对应通常说的一张表
+    * 元组（tuple）：表中的一行即为一个元组
+    * 属性（attribute）：表中的一列即为一个属性
+    * 码（key）：表中可以唯一确定一个元组的某个属性组
+    * 域（domain）：一组具有相同数据类型的值的集合
+    * 分量：元组中的一个属性值
+    * 关系模式：对关系的描述，一般表示为 `关系名(属性1, 属性2, ..., 属性n)`
+* 面向对象数据模型（object oriented data model）
+* 对象关系数据模型（object relational data model）
+* 半结构化数据模型（semistructure data model）
+
+### 常用 SQL 操作
+
+<table>
+  <tr>
+    <th>对象类型</th>
+    <th>对象</th>
+    <th>操作类型</th>
+  </tr>
+  <tr>
+    <td rowspan="4">数据库模式</td>
+    <td>模式</td>
+    <td><code>CREATE SCHEMA</code></td>
+  </tr>
+  <tr>
+    <td>基本表</td>
+    <td><code>CREATE SCHEMA</code>，<code>ALTER TABLE</code></td>
+  </tr>
+    <tr>
+    <td>视图</td>
+    <td><code>CREATE VIEW</code></td>
+  </tr>
+    <tr>
+    <td>索引</td>
+    <td><code>CREATE INDEX</code></td>
+  </tr>
+    <tr>
+    <td rowspan="2">数据</td>
+    <td>基本表和视图</td>
+    <td><code>SELECT</code>，<code>INSERT</code>，<code>UPDATE</code>，<code>DELETE</code>，<code>REFERENCES</code>，<code>ALL PRIVILEGES</code></td>
+  </tr>
+    <tr>
+    <td>属性列</td>
+    <td><code>SELECT</code>，<code>INSERT</code>，<code>UPDATE</code>，<code>REFERENCES</code>，<code>ALL PRIVILEGES</code></td>
+  </tr>
+</table>
+
+> SQL 语法教程：[runoob . SQL 教程](http://www.runoob.com/sql/sql-tutorial.html)
+
+### 关系型数据库
+
+* 基本关系操作：查询（选择、投影、连接（等值连接、自然连接、外连接（左外连接、右外连接））、除、并、差、交、笛卡尔积等）、插入、删除、修改
+* 关系模型中的三类完整性约束：实体完整性、参照完整性、用户定义的完整性
+
+#### 索引
+
 * 数据库索引：顺序索引、B+ 树索引、hash 索引
-[MySQL 索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
-* [SQL 约束 (Constraints)](http://www.w3school.com.cn/sql/sql_constraints.asp)
+* [MySQL 索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 
-### 范式
+### 数据库完整性
 
-* 第一范式（1NF）：属性（字段）是最小单位不可再分
-* 第二范式（2NF）：满足 1NF，每个非主属性完全依赖于主键（消除 1NF 非主属性对码的部分函数依赖）
-* 第三范式（3NF）：满足 2NF，任何非主属性不依赖于其他非主属性（消除 2NF 主属性对码的传递函数依赖）
-* 鲍依斯-科得范式（BCNF）：满足 3NF，任何非主属性不能对主键子集依赖（消除 3NF 主属性对码的部分和传递函数依赖）
-* 第四范式（4NF）：满足 3NF，属性之间不能有非平凡且非函数依赖的多值依赖（消除 3NF 非平凡且非函数依赖的多值依赖）
+* 数据库的完整性是指数据的正确性和相容性。
+    * 完整性：为了防止数据库中存在不符合语义（不正确）的数据。
+    * 安全性：为了保护数据库防止恶意破坏和非法存取。
+* 触发器：是用户定义在关系表中的一类由事件驱动的特殊过程。
 
-## 设计模式
+### 关系数据理论
+
+* 数据依赖是一个关系内部属性与属性之间的一种约束关系，是通过属性间值的相等与否体现出来的数据间相关联系。
+* 最重要的数据依赖：函数依赖、多值依赖。
+
+#### 范式
+
+* 第一范式（1NF）：属性（字段）是最小单位不可再分。
+* 第二范式（2NF）：满足 1NF，每个非主属性完全依赖于主键（消除 1NF 非主属性对码的部分函数依赖）。
+* 第三范式（3NF）：满足 2NF，任何非主属性不依赖于其他非主属性（消除 2NF 非主属性对码的传递函数依赖）。
+* 鲍依斯-科得范式（BCNF）：满足 3NF，任何非主属性不能对主键子集依赖（消除 3NF 主属性对码的部分和传递函数依赖）。
+* 第四范式（4NF）：满足 3NF，属性之间不能有非平凡且非函数依赖的多值依赖（消除 3NF 非平凡且非函数依赖的多值依赖）。
+
+### 数据库恢复
+
+* 事务：是用户定义的一个数据库操作序列，这些操作要么全做，要么全不做，是一个不可分割的工作单位。
+* 事物的 ACID 特性：原子性、一致性、隔离性、持续性。
+* 恢复的实现技术：建立冗余数据 -> 利用冗余数据实施数据库恢复。
+* 建立冗余数据常用技术：数据转储（动态海量转储、动态增量转储、静态海量转储、静态增量转储）、登记日志文件。
+
+### 并发控制
+
+* 事务是并发控制的基本单位。
+* 并发操作带来的数据不一致性包括：丢失修改、不可重复读、读 “脏” 数据。
+* 并发控制主要技术：封锁、时间戳、乐观控制法、多版本并发控制等。
+* 基本封锁类型：排他锁（X 锁 / 写锁）、共享锁（S 锁 / 读锁）。
+* 活锁死锁：
+    * 活锁：事务永远处于等待状态，可通过先来先服务的策略避免。
+    * 死锁：事物永远不能结束
+        * 预防：一次封锁法、顺序封锁法；
+        * 诊断：超时法、等待图法；
+        * 解除：撤销处理死锁代价最小的事务，并释放此事务的所有的锁，使其他事务得以继续运行下去。
+* 可串行化调度：多个事务的并发执行是正确的，当且仅当其结果与按某一次序串行地执行这些事务时的结果相同。可串行性时并发事务正确调度的准则。
+
+<a id="design-pattern"></a>
+
+## 📏 设计模式
+
+> 各大设计模式例子参考：[CSDN专栏 . C++ 设计模式](https://blog.csdn.net/liang19890820/article/details/66974516) 系列博文
+
+[设计模式工程目录](DesignPattern)
+
+### 单例模式
+
+[单例模式例子](DesignPattern/SingletonPattern)
+
+### 抽象工厂模式
+
+[抽象工厂模式例子](DesignPattern/AbstractFactoryPattern)
+
+### 适配器模式
+
+[适配器模式例子](DesignPattern/AdapterPattern)
+
+### 桥接模式
+
+[桥接模式例子](DesignPattern/BridgePattern)
+
+### 观察者模式
+
+[观察者模式例子](DesignPattern/ObserverPattern)
 
 ### 设计模式的六大原则
 
@@ -2429,42 +2691,11 @@ ssize_t write(int fd, const void *buf, size_t count);
 * 迪米特法则（LoD，Law of Demeter）
 * 开放封闭原则（OCP，Open Close Principle）
 
-### 单例模式
+<a id="link-loading-library"></a>
 
-```cpp
-// 懒汉式单例模式
-class Singleton
-{
-private:
-	Singleton() { }
-	static Singleton * pInstance;
-public:
-	static Singleton * GetInstance()
-	{
-		if (pInstance == nullptr)
-			pInstance = new Singleton();
-		return pInstance;
-	}
-};
+## ⚙️ 链接装载库
 
-// 线程安全的单例模式
-class Singleton
-{
-private:
-	Singleton() { }
-	~Singleton() { }
-	Singleton(const Singleton &);
-	Singleton & operator = (const Singleton &);
-public:
-	static Singleton & GetInstance()
-	{
-		static Singleton instance;
-		return instance;
-	}
-};
-```
-
-## 链接装载库
+> 本节部分知识点来自《程序员的自我修养——链接装载库》
 
 ### 内存、栈、堆
 
@@ -2501,6 +2732,14 @@ public:
 * 没用初始化栈中的指针，指针的值一般会是随机数，之后就直接开始使用指针
 
 ### 编译链接
+
+#### 各平台文件格式
+
+平台 | 可执行文件 | 目标文件 | 动态库/共享对象 | 静态库
+---|---|---|---|---
+Windows|exe|obj|dll|lib
+Unix/Linux|ELF、out|o|so|a
+Mac|Mach-O|o|dylib、tbd、framework|a、framework
 
 #### 编译链接过程
 
@@ -2585,46 +2824,366 @@ Linux 下的共享库就是普通的 ELF 共享对象。
 * `LD_PRELOAD`：指定预先装载的一些共享库甚至是目标文件
 * `LD_DEBUG`：打开动态链接器的调试功能
 
-### Windows 的动态链接库（Dynamic-Link Library）
+#### so 共享库的编写
 
-<details><summary>Windows 动态链接库例子</summary>
+使用 CLion 编写共享库
 
-DLL 头文件
+创建一个名为 MySharedLib 的共享库
+
+CMakeLists.txt
+
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(MySharedLib)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_library(MySharedLib SHARED library.cpp library.h)
+```
+
+library.h
+
 ```cpp
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifndef MYSHAREDLIB_LIBRARY_H
+#define MYSHAREDLIB_LIBRARY_H
 
-#ifdef _WIN32
-#  ifdef MODULE_API_EXPORTS
-#    define MODULE_API __declspec(dllexport)
-#  else
-#    define MODULE_API __declspec(dllimport)
-#  endif
-#else
-#  define MODULE_API
-#endif
+// 打印 Hello World!
+void hello();
 
-MODULE_API int module_init();
-
-#ifdef __cplusplus
+// 使用可变模版参数求和
+template <typename T>
+T sum(T t)
+{
+    return t;
 }
+template <typename T, typename ...Types>
+T sum(T first, Types ... rest)
+{
+    return first + sum<T>(rest...);
+}
+
 #endif
 ```
 
-DLL 源文件
-```cpp
-#define MODULE_API_EXPORTS
-#include "module.h"
+library.cpp
 
-MODULE_API int module_init()
-{
-    /* do something useful */
+```cpp
+#include <iostream>
+#include "library.h"
+
+void hello() {
+    std::cout << "Hello, World!" << std::endl;
+}
+```
+
+#### so 共享库的使用（被可执行项目调用）
+
+使用 CLion 调用共享库
+
+创建一个名为 TestSharedLib 的可执行项目
+
+CMakeLists.txt
+
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(TestSharedLib)
+
+# C++11 编译
+set(CMAKE_CXX_STANDARD 11)
+
+# 头文件路径
+set(INC_DIR /home/xx/code/clion/MySharedLib)
+# 库文件路径
+set(LIB_DIR /home/xx/code/clion/MySharedLib/cmake-build-debug)
+
+include_directories(${INC_DIR})
+link_directories(${LIB_DIR})
+link_libraries(MySharedLib)
+
+add_executable(TestSharedLib main.cpp)
+
+# 链接 MySharedLib 库
+target_link_libraries(TestSharedLib MySharedLib)
+```
+
+main.cpp
+
+```cpp
+#include <iostream>
+#include "library.h"
+using std::cout;
+using std::endl;
+
+int main() {
+
+    hello();
+    cout << "1 + 2 = " << sum(1,2) << endl;
+    cout << "1 + 2 + 3 = " << sum(1,2,3) << endl;
+
     return 0;
 }
 ```
 
-</details>
+执行结果
+
+```
+Hello, World!
+1 + 2 = 3
+1 + 2 + 3 = 6
+```
+
+### Windows 应用程序入口函数
+
+* GUI（Graphical User Interface）应用，链接器选项：`/SUBSYSTEM:WINDOWS`
+* CUI（Console User Interface）应用，链接器选项：`/SUBSYSTEM:CONSOLE`
+
+_tWinMain 与 _tmain 函数声明
+
+```cpp
+Int WINAPI _tWinMain(
+    HINSTANCE hInstanceExe,
+    HINSTANCE,
+    PTSTR pszCmdLine,
+    int nCmdShow);
+
+int _tmain(
+    int argc,
+    TCHAR *argv[],
+    TCHAR *envp[]);
+```
+
+应用程序类型|入口点函数|嵌入可执行文件的启动函数
+---|---|---
+处理ANSI字符（串）的GUI应用程序|_tWinMain(WinMain)|WinMainCRTSartup
+处理Unicode字符（串）的GUI应用程序|_tWinMain(wWinMain)|wWinMainCRTSartup
+处理ANSI字符（串）的CUI应用程序|_tmain(Main)|mainCRTSartup
+处理Unicode字符（串）的CUI应用程序|_tmain(wMain)|wmainCRTSartup
+动态链接库（Dynamic-Link Library）|DllMain|_DllMainCRTStartup 
+
+### Windows 的动态链接库（Dynamic-Link Library）
+
+> 部分知识点来自《Windows 核心编程（第五版）》
+
+#### 用处
+
+* 扩展了应用程序的特性
+* 简化了项目管理
+* 有助于节省内存
+* 促进了资源的共享
+* 促进了本地化
+* 有助于解决平台间的差异
+* 可以用于特殊目的
+
+#### 注意
+
+* 创建 DLL，事实上是在创建可供一个可执行模块调用的函数
+* 当一个模块提供一个内存分配函数（malloc、new）的时候，它必须同时提供另一个内存释放函数（free、delete）
+* 在使用 C 和 C++ 混编的时候，要使用 extern "C" 修饰符
+* 一个 DLL 可以导出函数、变量（避免导出）、C++ 类（导出导入需要同编译器，否则避免导出）
+* DLL 模块：cpp 文件中的 __declspec(dllexport) 写在 include 头文件之前
+* 调用 DLL 的可执行模块：cpp 文件的 __declspec(dllimport) 之前不应该定义 MYLIBAPI
+
+#### 加载 Windows 程序的搜索顺序
+
+1. 包含可执行文件的目录
+2. Windows 的系统目录，可以通过 GetSystemDirectory 得到
+3. 16 位的系统目录，即 Windows 目录中的 System 子目录
+4. Windows 目录，可以通过 GetWindowsDirectory 得到
+5. 进程的当前目录
+6. PATH 环境变量中所列出的目录
+
+#### DLL 入口函数
+
+DllMain 函数
+
+```cpp
+BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+{
+    switch(fdwReason)
+    {
+    case DLL_PROCESS_ATTACH:
+        // 第一次将一个DLL映射到进程地址空间时调用
+        // The DLL is being mapped into the process' address space.
+        break;
+    case DLL_THREAD_ATTACH:
+        // 当进程创建一个线程的时候，用于告诉DLL执行与线程相关的初始化（非主线程执行）
+        // A thread is bing created.
+        break;
+    case DLL_THREAD_DETACH:
+        // 系统调用 ExitThread 线程退出前，即将终止的线程通过告诉DLL执行与线程相关的清理
+        // A thread is exiting cleanly.
+        break;
+    case DLL_PROCESS_DETACH:
+        // 将一个DLL从进程的地址空间时调用
+        // The DLL is being unmapped from the process' address space.
+        break;
+    }
+    return (TRUE); // Used only for DLL_PROCESS_ATTACH
+}
+```
+
+#### 载入卸载库
+
+LoadLibrary、LoadLibraryExA、LoadPackagedLibrary、FreeLibrary、FreeLibraryAndExitThread 函数声明
+
+```cpp
+// 载入库
+HMODULE WINAPI LoadLibrary(
+  _In_ LPCTSTR lpFileName
+);
+HMODULE LoadLibraryExA(
+  LPCSTR lpLibFileName,
+  HANDLE hFile,
+  DWORD  dwFlags
+);
+// 若要在通用 Windows 平台（UWP）应用中加载 Win32 DLL，需要调用 LoadPackagedLibrary，而不是 LoadLibrary 或 LoadLibraryEx
+HMODULE LoadPackagedLibrary(
+  LPCWSTR lpwLibFileName,
+  DWORD   Reserved
+);
+
+// 卸载库
+BOOL WINAPI FreeLibrary(
+  _In_ HMODULE hModule
+);
+// 卸载库和退出线程
+VOID WINAPI FreeLibraryAndExitThread(
+  _In_ HMODULE hModule,
+  _In_ DWORD   dwExitCode
+);
+```
+
+#### 显示地链接到导出符号
+
+GetProcAddress 函数声明
+
+```cpp
+FARPROC GetProcAddress(
+  HMODULE hInstDll,
+  PCSTR pszSymbolName  // 只能接受 ANSI 字符串，不能是 Unicode
+);
+```
+
+#### DumpBin.exe 查看 DLL 信息
+
+在 `VS 的开发人员命令提示符` 使用 `DumpBin.exe` 可查看 DLL 库的导出段（导出的变量、函数、类名的符号）、相对虚拟地址（RVA，relative virtual address）。如：
+```
+DUMPBIN -exports D:\mydll.dll
+```
+
+#### LoadLibrary 与 FreeLibrary 流程图
+
+LoadLibrary 与 FreeLibrary 流程图
+
+##### LoadLibrary
+
+![WindowsLoadLibrary](https://gitee.com/huihut/interview/raw/master/images/WindowsLoadLibrary.png)
+
+##### FreeLibrary
+
+![WindowsFreeLibrary](https://gitee.com/huihut/interview/raw/master/images/WindowsFreeLibrary.png)
+
+#### DLL 库的编写（导出一个 DLL 模块）
+
+DLL 库的编写（导出一个 DLL 模块）
+DLL 头文件
+
+```cpp
+// MyLib.h
+
+#ifdef MYLIBAPI
+
+// MYLIBAPI 应该在全部 DLL 源文件的 include "Mylib.h" 之前被定义
+// 全部函数/变量正在被导出
+
+#else
+
+// 这个头文件被一个exe源代码模块包含，意味着全部函数/变量被导入
+#define MYLIBAPI extern "C" __declspec(dllimport)
+
+#endif
+
+// 这里定义任何的数据结构和符号
+
+// 定义导出的变量（避免导出变量）
+MYLIBAPI int g_nResult;
+
+// 定义导出函数原型
+MYLIBAPI int Add(int nLeft, int nRight);
+```
+
+DLL 源文件
+
+```cpp
+// MyLibFile1.cpp
+
+// 包含标准Windows和C运行时头文件
+#include <windows.h>
+
+// DLL源码文件导出的函数和变量
+#define MYLIBAPI extern "C" __declspec(dllexport)
+
+// 包含导出的数据结构、符号、函数、变量
+#include "MyLib.h"
+
+// 将此DLL源代码文件的代码放在此处
+int g_nResult;
+
+int Add(int nLeft, int nRight)
+{
+    g_nResult = nLeft + nRight;
+    return g_nResult;
+}
+```
+
+#### DLL 库的使用（运行时动态链接 DLL）
+
+DLL 库的使用（运行时动态链接 DLL）
+
+```cpp
+// A simple program that uses LoadLibrary and 
+// GetProcAddress to access myPuts from Myputs.dll. 
+ 
+#include <windows.h> 
+#include <stdio.h> 
+ 
+typedef int (__cdecl *MYPROC)(LPWSTR); 
+ 
+int main( void ) 
+{ 
+    HINSTANCE hinstLib; 
+    MYPROC ProcAdd; 
+    BOOL fFreeResult, fRunTimeLinkSuccess = FALSE; 
+ 
+    // Get a handle to the DLL module.
+ 
+    hinstLib = LoadLibrary(TEXT("MyPuts.dll")); 
+ 
+    // If the handle is valid, try to get the function address.
+ 
+    if (hinstLib != NULL) 
+    { 
+        ProcAdd = (MYPROC) GetProcAddress(hinstLib, "myPuts"); 
+ 
+        // If the function address is valid, call the function.
+ 
+        if (NULL != ProcAdd) 
+        {
+            fRunTimeLinkSuccess = TRUE;
+            (ProcAdd) (L"Message sent to the DLL function\n"); 
+        }
+        // Free the DLL module.
+ 
+        fFreeResult = FreeLibrary(hinstLib); 
+    } 
+
+    // If unable to call the DLL function, use an alternative.
+    if (! fRunTimeLinkSuccess) 
+        printf("Message printed from executable\n"); 
+
+    return 0;
+}
+```
 
 ### 运行库（Runtime Library）
 
@@ -2685,22 +3244,11 @@ MODULE_API int module_init()
 * 变长参数（stdarg.h）
 * 非局部跳转（setjmp.h）
 
-## 海量数据处理
+<a id="books"></a>
 
-* [ 海量数据处理面试题集锦](http://blog.csdn.net/v_july_v/article/details/6685962)
-* [十道海量数据处理面试题与十个方法大总结](http://blog.csdn.net/v_JULY_v/article/details/6279498)
+## 📚 书籍
 
-## 音视频
-
-* [最全实时音视频开发要用到的开源工程汇总](http://www.yunliaoim.com/im/1869.html)
-* [18个实时音视频开发中会用到开源项目](http://webrtc.org.cn/18%E4%B8%AA%E5%AE%9E%E6%97%B6%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E4%B8%AD%E4%BC%9A%E7%94%A8%E5%88%B0%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/)
-
-## 其他
-
-* [Bjarne Stroustrup 的常见问题](http://www.stroustrup.com/bs_faq.html)
-* [Bjarne Stroustrup 的 C++ 风格和技巧常见问题](http://www.stroustrup.com/bs_faq2.html)
-
-## 书籍
+> [huihut/CS-Books](https://github.com/huihut/CS-Books)：📚 Computer Science Books 计算机技术类书籍 PDF
 
 ### 语言
 
@@ -2732,44 +3280,158 @@ MODULE_API int module_init()
 
 * 《程序员的自我修养》
 
-## 复习刷题网站
+<a id="cc-development-direction"></a>
 
-* [leetcode](https://leetcode.com/)
-* [牛客网](https://www.nowcoder.net/)
-* [慕课网](https://www.imooc.com/)
-* [菜鸟教程](http://www.runoob.com/)
+## 🔱 C/C++ 发展方向
 
-## 招聘时间岗位
+> C/C++ 发展方向甚广，包括不限于以下方向， 以下列举一些大厂校招岗位要求。
 
-* [牛客网 . 2018 IT名企校招指南](https://www.nowcoder.com/activity/campus2018)
+### 后台/服务器
 
-## 面试题目经验
+【后台开发】
 
-### 牛客网
+* 编程基本功扎实，掌握 C/C++/JAVA 等开发语言、常用算法和数据结构；
+* 熟悉 TCP/UDP 网络协议及相关编程、进程间通讯编程；
+* 了解 Python、Shell、Perl 等脚本语言；
+* 了解 MYSQL 及 SQL 语言、编程，了解 NoSQL, key-value 存储原理；
+* 全面、扎实的软件知识结构，掌握操作系统、软件工程、设计模式、数据结构、数据库系统、网络安全等专业知识；
+* 了解分布式系统设计与开发、负载均衡技术，系统容灾设计，高可用系统等知识。
 
+### 桌面客户端
+
+【PC 客户端开发】
+
+* 计算机软件相关专业本科或以上学历，热爱编程，基础扎实，理解算法和数据结构相关知识；  
+* 熟悉 windows 操作系统的内存管理、文件系统、进程线程调度； 
+* 熟悉 MFC/windows 界面实现机制，熟练使用 VC，精通 C/C++，熟练使用 STL，以及 Windows 下网络编程经验；
+* 熟练掌握 Windows 客户端开发、调试，有 Windows 应用软件开发经验优先；
+* 对于创新及解决具有挑战性的问题充满激情，具有良好的算法基础及系统分析能力。
+
+### 图形学/游戏/VR/AR
+
+【游戏客户端开发】
+
+* 计算机科学/工程相关专业本科或以上学历，热爱编程，基础扎实，理解算法、数据结构、软件设计相关知识；
+* 至少掌握一种游戏开发常用的编程语言，具 C++/C# 编程经验优先；
+* 具游戏引擎（如 Unity、Unreal）使用经验者优先；
+* 了解某方面的游戏客户端技术（如图形、音频、动画、物理、人工智能、网络同步）者优先考虑；
+* 对于创新及解决具有挑战性的问题充满激情，有较强的学习能力、分析及解决问题能力，具备良好的团队合作意识；
+* 具阅读英文技术文档能力；
+* 热爱游戏。
+
+### 测试开发
+
+【测试开发】
+
+* 计算机或相关专业本科及以上学历；
+* 一至两年的 C/C++/Python 或其他计算机语言的编程经验；
+* 具备撰写测试计划、测试用例、以及实现性能和安全等测试的能力；
+* 具备实现自动化系统的能力；
+* 具备定位调查产品缺陷能力、以及代码级别调试缺陷的能力；
+* 工作主动积极，有责任心，具有良好的团队合作精神。
+
+### 网络安全/逆向
+
+【安全技术】
+
+* 热爱互联网，对操作系统和网络安全有狂热的追求，专业不限；
+* 熟悉漏洞挖掘、网络安全攻防技术，了解常见黑客攻击手法；  
+* 掌握基本开发能力，熟练使用 C/C++ 语言；
+* 对数据库、操作系统、网络原理有较好掌握；  
+* 具有软件逆向，网络安全攻防或安全系统开发经验者优先。
+
+### 嵌入式/物联网
+
+【嵌入式应用开发】
+
+* 有良好的编程基础，熟练掌握 C/C++ 语言；
+* 掌握操作系统、数据结构等软件开发必备知识；
+* 具备较强的沟通理解能力及良好的团队合作意识；
+* 有 Linux/Android 系统平台的开发经验者优先。
+
+### 音视频/流媒体/SDK
+
+【音视频编解码】
+
+1. 硕士及以上学历，计算机、信号处理、数学、信息类及相关专业和方向； 
+2. 视频编解码基础扎实，熟常用的 HEVC 或 H264，有较好的数字信号处理基础； 
+3. 掌握 C/C++，代码能力强, 熟悉一种汇编语言尤佳； 
+4. 较强的英文文献阅读能力； 
+5. 学习能力强，具有团队协作精神，有较强的抗压能力。
+
+### 计算机视觉/机器学习
+
+【计算机视觉研究】
+
+* 计算机、应用数学、模式识别、人工智能、自控、统计学、运筹学、生物信息、物理学/量子计算、神经科学、社会学/心理学等专业，图像处理、模式识别、机器学习相关研究方向，本科及以上，博士优先；
+* 熟练掌握计算机视觉和图像处理相关的基本算法及应用；
+* 较强的算法实现能力，熟练掌握 C/C++ 编程，熟悉 Shell/Python/Matlab 至少一种编程语言；
+* 在计算机视觉、模式识别等学术会议或者期刊上发表论文、相关国际比赛获奖、及有相关专利者优先。
+
+<a id="review-of-brush-questions-website"></a>
+
+## 💯 复习刷题网站
+
+* [cplusplus](http://www.cplusplus.com/)
+* [cppreference](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)
+* [runoob](http://www.runoob.com/cplusplus/cpp-tutorial.html)
+* [leetcode](https://leetcode.com/) | [leetcode-cn](https://leetcode-cn.com/)
+* [lintcode](https://www.lintcode.com/)
+* [nowcoder](https://www.nowcoder.net/)
+
+<a id="interview-questions-experience"></a>
+
+## 📝 面试题目经验
+
+* [牛客网 . 2020秋招面经大汇总！（岗位划分）](https://www.nowcoder.com/discuss/205497)
+* [牛客网 . 【备战秋招】2020届秋招备战攻略](https://www.nowcoder.com/discuss/197116)
+* [牛客网 . 2019校招面经大汇总！【每日更新中】](https://www.nowcoder.com/discuss/90907)
+* [牛客网 . 2019校招技术类岗位面经汇总【技术类】](https://www.nowcoder.com/discuss/146655)
+* [牛客网 . 2018校招笔试真题汇总](https://www.nowcoder.com/discuss/68802)
 * [牛客网 . 2017秋季校园招聘笔经面经专题汇总](https://www.nowcoder.com/discuss/12805)
 * [牛客网 . 史上最全2017春招面经大合集！！](https://www.nowcoder.com/discuss/25268)
 * [牛客网 . 面试题干货在此](https://www.nowcoder.com/discuss/57978)
-
-### 知乎
-
 * [知乎 . 互联网求职路上，你见过哪些写得很好、很用心的面经？最好能分享自己的面经、心路历程。](https://www.zhihu.com/question/29693016)
 * [知乎 . 互联网公司最常见的面试算法题有哪些？](https://www.zhihu.com/question/24964987)
-* [知乎 . 面试 C++ 程序员，什么样的问题是好问题？](https://www.zhihu.com/question/20184857)
-
-### CSDN
-
 * [CSDN . 全面整理的C++面试题](http://blog.csdn.net/ljzcome/article/details/574158)
 * [CSDN . 百度研发类面试题（C++方向）](http://blog.csdn.net/Xiongchao99/article/details/74524807?locationNum=6&fps=1)
 * [CSDN . c++常见面试题30道](http://blog.csdn.net/fakine/article/details/51321544)
 * [CSDN . 腾讯2016实习生面试经验（已经拿到offer)](http://blog.csdn.net/onever_say_love/article/details/51223886)
-
-### cnblogs
-
 * [cnblogs . C++面试集锦( 面试被问到的问题 )](https://www.cnblogs.com/Y1Focus/p/6707121.html)
 * [cnblogs . C/C++ 笔试、面试题目大汇总](https://www.cnblogs.com/fangyukuan/archive/2010/09/18/1829871.html)
 * [cnblogs . 常见C++面试题及基本知识点总结（一）](https://www.cnblogs.com/LUO77/p/5771237.html)
-
-### Segmentfault
-
 * [segmentfault . C++常见面试问题总结](https://segmentfault.com/a/1190000003745529)
+
+<a id="recruitment-time-post"></a>
+
+## 📆 招聘时间岗位
+
+* [牛客网 . 名企校招日程](https://www.nowcoder.com/school/schedule)
+
+<a id="recommend"></a>
+
+## 👍 内推
+
+* [Github . CyC2018/Job-Recommend](https://github.com/CyC2018/Job-Recommend)：🔎 互联网内推信息（社招、校招、实习）
+* [Github . amusi/AI-Job-Recommend](https://github.com/amusi/AI-Job-Recommend)：国内公司人工智能方向（含机器学习、深度学习、计算机视觉和自然语言处理）岗位的招聘信息（含全职、实习和校招）
+
+<a id="contributor"></a>
+
+## 👬 贡献者
+
+<a href="https://github.com/huihut/interview/graphs/contributors"><img src="https://opencollective.com/interview/contributors.svg?button=false" /></a>
+
+<a id="support-sponsor"></a>
+
+## 🍭 支持赞助
+
+**[Avalive](https://store.steampowered.com/app/1137770/Avalive/)**：一个面部捕捉的虚拟形象扮演软件。
+
+<a id="license"></a>
+
+## 📜 License
+
+本仓库遵循 CC BY-NC-SA 4.0（署名 - 非商业性使用 - 相同方式共享） 协议，转载请注明出处，不得用于商业目的。
+
+[![CC BY-NC-SA 4.0](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](https://github.com/huihut/interview/blob/master/LICENSE)
+
